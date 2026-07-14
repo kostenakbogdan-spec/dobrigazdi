@@ -15,7 +15,8 @@ const cartItemsContainer = document.getElementById('cart-items-container');
 const cartTotalPrice = document.getElementById('cart-total-price');
 const cartCount = document.getElementById('cart-count');
 
-// Елементи модального вікна замовлення
+const successModal = document.getElementById('success-modal');
+const closeSuccessBtn = document.getElementById('close-success-btn');// Елементи модального вікна замовлення
 const orderModal = document.getElementById('order-modal');
 const modalOverlay = document.getElementById('modal-overlay');
 const checkoutBtn = document.getElementById('checkout-btn');
@@ -143,7 +144,7 @@ const closeOrderModal = () => {
 closeModalBtn.addEventListener('click', closeOrderModal);
 modalOverlay.addEventListener('click', closeOrderModal);
 
-// 7. НАДІСЛАННЯ ЗАМОВЛЕННЯ В TELEGRAM
+/// 7. НАДІСЛАННЯ ЗАМОВЛЕННЯ В TELEGRAM
 checkoutForm.addEventListener('submit', (e) => {
     e.preventDefault(); // Запобігаємо перезавантаженню сторінки
 
@@ -192,23 +193,34 @@ ${itemsText}
         body: JSON.stringify({
             chat_id: TELEGRAM_CHAT_ID,
             text: message,
-            parse_mode: 'Markdown' // Дозволяє робити текст жирним та курсивом
+            parse_mode: 'Markdown'
         })
     })
     .then(response => {
         if (response.ok) {
-            alert('Дякуємо! Ваше замовлення успішно надіслано в обробку.');
+            // Закриваємо форму оформлення замовлення
+            closeOrderModal();
+            
+            // Відкриваємо вікно успіху
+            successModal.classList.add('open');
+            modalOverlay.classList.add('open');
+
             // Очищуємо кошик та форму
             cart = [];
             updateCartUI();
             checkoutForm.reset();
-            closeOrderModal();
         } else {
-            alert('Помилка надсилання замовлення. Перевірте правильність Telegram токенів у коді!');
+            alert('Помилка надсилання замовлення. Перевірте правильність Telegram токенів!');
         }
     })
     .catch(error => {
         console.error('Error:', error);
         alert('Сталася помилка з\'єднання. Спробуйте ще раз пізніше.');
     });
+});
+
+// Клікнувши по кнопці "Чудово" у вікні успіху — закриваємо його повністю
+closeSuccessBtn.addEventListener('click', () => {
+    successModal.classList.remove('open');
+    modalOverlay.classList.remove('open');
 });

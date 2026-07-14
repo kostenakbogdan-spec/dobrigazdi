@@ -616,4 +616,144 @@ body {
 
 .modal-overlay.open {
     display: block;
+}/* ВІКНО УСПІХУ */
+.success-modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.9);
+    width: 90%;
+    max-width: 400px;
+    background-color: #ffffff;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+    border-radius: 20px;
+    z-index: 3500;
+    display: none;
+    opacity: 0;
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.3s ease;
+    box-sizing: border-box;
+}
+
+.success-modal.open {
+    display: block;
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.success-modal-content {
+    padding: 40px 30px;
+    text-align: center;
+}
+
+.success-modal-content h2 {
+    color: #27ae60;
+    margin: 20px 0 10px 0;
+    font-size: 24px;
+}
+
+.success-modal-content p {
+    color: #7d6e65;
+    font-size: 15px;
+    line-height: 1.5;
+    margin-bottom: 25px;
+}
+
+.success-close-btn {
+    background-color: #27ae60;
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 25px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.2s;
+}
+
+.success-close-btn:hover {
+    background-color: #219653;
+    transform: scale(1.05);
+}
+
+/* КРАСИВА АНІМАЦІЯ ГАЛОЧКИ */
+.success-checkmark {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto;
+}
+
+.success-checkmark .check-icon {
+    width: 80px;
+    height: 80px;
+    position: relative;
+    border-radius: 50%;
+    box-sizing: content-box;
+    border: 4px solid rgba(76, 175, 80, .5);
+}
+
+.success-checkmark .check-icon::after {
+    content: '';
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+}
+
+.success-checkmark .check-icon .icon-line {
+    height: 5px;
+    background-color: #4CAF50;
+    display: block;
+    border-radius: 2px;
+    position: absolute;
+    z-index: 10;
+}
+
+.success-checkmark .check-icon .icon-line.line-tip {
+    top: 46px;
+    left: 14px;
+    width: 25px;
+    transform: rotate(45deg);
+    animation: write-tick-tip 0.5s ease;
+}
+
+.success-checkmark .check-icon .icon-line.line-long {
+    top: 38px;
+    right: 8px;
+    width: 47px;
+    transform: rotate(-45deg);
+    animation: write-tick-long 0.75s ease;
+}
+
+.success-checkmark .check-icon .icon-circle {
+    top: -4px;
+    left: -4px;
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    border: 4px solid #4CAF50;
+    border-radius: 50%;
+    box-sizing: content-box;
+    z-index: 2;
+    animation: grow-circle 0.6s ease-in-out;
+}
+
+/* Ключові кадри анімацій */
+@keyframes grow-circle {
+    0% { transform: scale(0); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+@keyframes write-tick-tip {
+    0% { width: 0; left: 1px; top: 19px; }
+    54% { width: 0; left: 1px; top: 19px; }
+    70% { width: 50px; left: -8px; top: 37px; }
+    84% { width: 17px; left: 21px; top: 48px; }
+    100% { width: 25px; left: 14px; top: 46px; }
+}
+
+@keyframes write-tick-long {
+    0% { width: 0; right: 46px; top: 54px; }
+    65% { width: 0; right: 46px; top: 54px; }
+    84% { width: 55px; right: 0px; top: 35px; }
+    100% { width: 47px; right: 8px; top: 38px; }
 }
