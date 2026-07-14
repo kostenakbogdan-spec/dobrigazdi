@@ -263,4 +263,243 @@ body {
     .category-section {
         scroll-margin-top: 20px;
     }
+}/* КНОПКА КОШИКА В ШАПЦІ */
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.cart-btn {
+    background-color: #3d3028;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: transform 0.2s, background-color 0.2s;
+    white-space: nowrap;
+}
+
+.cart-btn:hover {
+    background-color: #e6683c;
+    transform: translateY(-2px);
+}
+
+#cart-count {
+    background-color: #e6683c;
+    color: white;
+    padding: 2px 8px;
+    border-radius: 50%;
+    font-size: 13px;
+    margin-left: 5px;
+}
+
+/* БІЧНА ПАНЕЛЬ КОШИКА */
+.cart-sidebar {
+    position: fixed;
+    top: 0;
+    right: -400px; /* Схований за екраном справа */
+    width: 400px;
+    height: 100%;
+    background-color: #ffffff;
+    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+    z-index: 2000;
+    display: flex;
+    flex-direction: column;
+    transition: right 0.3s ease-in-out;
+    box-sizing: border-box;
+}
+
+.cart-sidebar.open {
+    right: 0; /* Виїжджає на екран */
+}
+
+.cart-header {
+    padding: 20px;
+    border-bottom: 1px solid #eee7de;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.cart-header h2 {
+    margin: 0;
+    color: #3d3028;
+    font-size: 22px;
+}
+
+.close-btn {
+    background: none;
+    border: none;
+    font-size: 30px;
+    color: #7d6e65;
+    cursor: pointer;
+}
+
+.cart-items {
+    padding: 20px;
+    flex-grow: 1;
+    overflow-y: auto;
+}
+
+.empty-cart-text {
+    text-align: center;
+    color: #a39385;
+    margin-top: 40px;
+}
+
+.cart-footer {
+    padding: 20px;
+    border-top: 1px solid #eee7de;
+    background-color: #faf6f0;
+}
+
+.cart-total {
+    display: flex;
+    justify-content: space-between;
+    font-size: 18px;
+    font-weight: bold;
+    color: #3d3028;
+    margin-bottom: 15px;
+}
+
+#cart-total-price {
+    color: #e6683c;
+}
+
+.checkout-btn {
+    width: 100%;
+    background: #e6683c;
+    border: none;
+    text-align: center;
+    padding: 15px;
+    border-radius: 10px;
+    font-size: 16px;
+}
+
+/* ЗАТЕМНЕННЯ ФОНУ */
+.cart-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: 1500;
+    display: none;
+}
+
+.cart-overlay.open {
+    display: block;
+}
+
+/* СТИЛІ ДЛЯ КНОПОК У КАРТКАХ */
+.card-footer-flex {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: auto; /* Притискає блок замовлення до низу картки */
+}
+
+.quantity-selector {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #eee7de;
+    border-radius: 8px;
+    overflow: hidden;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.qty-btn {
+    background-color: #faf6f0;
+    border: none;
+    width: 35px;
+    height: 35px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #4a3b32;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.qty-btn:hover {
+    background-color: #eee7de;
+}
+
+.qty-input {
+    border: none;
+    width: 50px;
+    height: 35px;
+    text-align: center;
+    font-size: 14px;
+    color: #4a3b32;
+    -moz-appearance: textfield;
+    appearance: textfield; /* Додаємо цей стандартний рядок */
+}
+
+.qty-input::-webkit-outer-spin-button,
+.qty-input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.add-to-cart-btn {
+    background-color: #e6683c;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    width: 100%;
+    transition: background-color 0.2s;
+}
+
+.add-to-cart-btn:hover {
+    background-color: #cc5429;
+}
+
+/* ТОВАРИ ВСЕРЕДИНІ КОШИКА */
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #f3ede2;
+    padding: 10px 0;
+}
+
+.cart-item-details h4 {
+    margin: 0 0 5px 0;
+    color: #3d3028;
+}
+
+.cart-item-details p {
+    margin: 0;
+    color: #7d6e65;
+    font-size: 14px;
+}
+
+.remove-item-btn {
+    background: none;
+    border: none;
+    color: #dc2743;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+/* АДАПТИВНІСТЬ КОШИКА ДЛЯ ТЕЛЕФОНІВ */
+@media (max-width: 480px) {
+    .cart-sidebar {
+        width: 100%;
+        right: -100%;
+    }
+    .header-actions {
+        width: 100%;
+        justify-content: center;
+    }
 }
