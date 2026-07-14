@@ -1,0 +1,258 @@
+/* Робить прокручування плавним */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Базові налаштування сторінки */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #faf6f0; 
+}
+
+/* Шапка сайту */
+.site-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    background-image: url('Untitled2_20260714095952.png'); 
+    background-repeat: no-repeat;
+    background-size: cover; 
+    background-position: center;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    width: 100%;
+    box-sizing: border-box;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+/* Налаштування розміру логотипа */
+.logo-img {
+    height: 91px; 
+    width: auto;  
+    display: block;
+    mix-blend-mode: multiply;
+}
+
+/* Стиль для посилання на адресу */
+.address-link {
+    color: #4a3b32; 
+    text-decoration: none; 
+    font-size: 16px;
+    font-weight: 500;
+    max-width: 500px; 
+    line-height: 1.4;
+    transition: color 0.2s ease;
+    text-align: center;
+}
+
+.address-link:hover {
+    color: #e6683c; 
+    text-decoration: underline; 
+}
+
+/* Стиль для кнопки Instagram */
+.btn {
+    display: inline-block;
+    padding: 12px 24px;
+    font-size: 16px;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 20px; 
+    color: white;
+    transition: transform 0.2s, box-shadow 0.2s;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.instagram-btn {
+    background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(220, 39, 67, 0.3);
+}
+
+/* СЕКЦІЯ КАТЕГОРІЙ НА ГОЛОВНОМУ ЕКРАНІ */
+.main-categories-section {
+    padding: 60px 30px 40px 30px;
+    text-align: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.main-title {
+    color: #3d3028;
+    font-size: 32px;
+    margin-bottom: 10px;
+}
+
+.main-subtitle {
+    color: #7d6e65;
+    font-size: 18px;
+    margin-bottom: 40px;
+}
+
+.categories-menu {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    flex-wrap: wrap;
+}
+
+.category-card {
+    flex: 1;
+    min-width: 280px;
+    max-width: 350px;
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    border-radius: 16px;
+    box-shadow: 0 6px 15px rgba(74, 59, 50, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.card-cow {
+    background: linear-gradient(135deg, #ffd166 0%, #f4a261 100%);
+}
+
+.card-goat {
+    background: linear-gradient(135deg, #e76f51 0%, #b56576 100%);
+}
+
+.card-dairy {
+    background: linear-gradient(135deg, #6d597a 0%, #355070 100%);
+}
+
+.card-text {
+    color: #ffffff;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.category-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 25px rgba(74, 59, 50, 0.2);
+}
+
+/* СТИЛІ ДЛЯ КАТАЛОГУ */
+.catalog-container {
+    padding: 20px 30px 60px 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.category-section {
+    scroll-margin-top: 140px; 
+    margin-bottom: 60px;
+}
+
+.category-title {
+    color: #4a3b32; 
+    font-size: 26px;
+    border-bottom: 3px solid #e6683c; 
+    padding-bottom: 12px;
+    margin-bottom: 30px;
+}
+
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 25px;
+}
+
+.product-card {
+    background-color: #ffffff;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03);
+    border: 1px solid #eee7de;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.2s, box-shadow 0.2s;
+    overflow: hidden; /* Щоб картинки не вилазили за рамки */
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(74, 59, 50, 0.1);
+}
+
+/* НАЛАШТУВАННЯ ЗОБРАЖЕНЬ ТОВАРІВ */
+.product-img {
+    width: 100%;
+    height: 180px; /* Усі картинки будуть однакової висоти */
+    object-fit: cover; /* Картинка заповнить рамки без спотворення */
+    border-radius: 8px;
+    margin-bottom: 15px;
+    background-color: #faf6f0; /* Поки картинок немає, буде гарний світлий фон */
+}
+
+.product-card h3 {
+    margin: 0 0 10px 0;
+    color: #3d3028;
+    font-size: 18px;
+}
+
+.product-card .description {
+    color: #7d6e65;
+    font-size: 14px;
+    line-height: 1.4;
+    margin: 0 0 15px 0;
+    flex-grow: 1;
+}
+
+.product-card .price {
+    font-size: 18px;
+    font-weight: bold;
+    color: #e6683c; 
+    display: block;
+}
+
+/* АДАПТИВНІСТЬ */
+/* АДАПТИВНІСТЬ ДЛЯ ТЕЛЕФОНІВ (Виправлена шапка) */
+@media (max-width: 768px) {
+    .site-header {
+        position: relative; 
+        flex-direction: column; /* Вибудовуємо елементи один під одним */
+        gap: 15px; /* Додаємо гарну відстань між елементами */
+        padding: 20px 15px; /* Зменшуємо відступи по краях */
+        text-align: center; /* Центруємо весь текст */
+    }
+    
+    .logo-img {
+        height: 75px; /* Трохи зменшуємо логотип для екрану телефону */
+    }
+    
+    .address-link {
+        font-size: 14px; /* Зменшуємо шрифт, щоб він гарно помістився */
+    }
+    
+    .catalog-container {
+        padding: 20px 15px;
+    }
+    
+    .main-title {
+        font-size: 26px;
+    }
+    
+    .category-title {
+        font-size: 22px;
+        text-align: center;
+    }
+    
+    .category-section {
+        scroll-margin-top: 20px;
+    }
+}
