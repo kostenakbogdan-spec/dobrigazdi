@@ -4,11 +4,19 @@ html {
 }
 
 /* Базові налаштування сторінки */
+/* Базові налаштування сторінки та новий красивий фон */
 body {
     margin: 0;
     padding: 0;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #faf6f0; 
+    
+    /* Крафтовий молочний фон з ледь помітним патерном */
+    background-color: #fcf9f2; 
+    background-image: radial-gradient(#e3d1be 1px, transparent 1px);
+    background-size: 24px 24px;
+    
+    /* Робимо так, щоб фон стояв на місці, коли користувач гортає товари вниз */
+    background-attachment: fixed; 
 }
 
 /* Шапка сайту */
