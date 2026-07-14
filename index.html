@@ -432,8 +432,53 @@
             </div>
         </section>
 
-    </main>
+   </main>
+
+    <div id="order-modal" class="order-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Оформлення замовлення</h2>
+                <button id="close-modal-btn" class="close-btn">&times;</button>
+            </div>
+            <form id="checkout-form" class="checkout-form">
+                <div class="form-group">
+                    <label for="client-name">Ваше ім'я та прізвище *</label>
+                    <input type="text" id="client-name" required placeholder="Іван Петренко">
+                </div>
+                
+                <div class="form-group">
+                    <label for="client-phone">Номер телефону *</label>
+                    <input type="tel" id="client-phone" required placeholder="+380XXXXXXXXX">
+                </div>
+                
+                <div class="form-group">
+                    <label for="delivery-method">Спосіб доставки *</label>
+                    <select id="delivery-method" required>
+                        <option value="" disabled selected>Оберіть варіант</option>
+                        <option value="Самовивіз">Самовивіз (з сироварні)</option>
+                        <option value="Нова Пошта">Нова Пошта</option>
+                        <option value="Укрпошта">Укрпошта</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="delivery-address">Адреса доставки / Номер відділення</label>
+                    <textarea id="delivery-address" rows="2" placeholder="Місто, номер відділення або домашня адреса"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="client-comment">Коментар до замовлення</label>
+                    <textarea id="client-comment" rows="2" placeholder="Наприклад: порізати шматочками, упакувати у вакуум..."></textarea>
+                </div>
+
+                <button type="submit" id="submit-order-btn" class="btn submit-order-btn">Підтвердити замовлення</button>
+            </form>
+        </div>
+    </div>
+    
+    <div id="modal-overlay" class="modal-overlay"></div>
 
     <script src="script.js"></script>
+
 </body>
 </html>

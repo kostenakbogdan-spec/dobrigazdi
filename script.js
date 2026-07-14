@@ -1,7 +1,12 @@
-// Зберігаємо кошик у пам'яті
 let cart = [];
 
-// Елементи інтерфейсу
+// ================= НАЛАШТУВАННЯ TELEGRAM =================
+// Якщо потрібно змінити отримувача — просто встав сюди нові дані!
+const TELEGRAM_BOT_TOKEN = '8984740382:AAGQ9fcO-4iMJjJyzao8BcQPkTAk8AJj-FY'; 
+const TELEGRAM_CHAT_ID = '6671894453'; 
+// ========================================================
+
+// Елементи інтерфейсу кошика
 const cartSidebar = document.getElementById('cart-sidebar');
 const cartOverlay = document.getElementById('cart-overlay');
 const cartToggleBtn = document.getElementById('cart-toggle-btn');
@@ -9,6 +14,13 @@ const cartCloseBtn = document.getElementById('cart-close-btn');
 const cartItemsContainer = document.getElementById('cart-items-container');
 const cartTotalPrice = document.getElementById('cart-total-price');
 const cartCount = document.getElementById('cart-count');
+
+// Елементи модального вікна замовлення
+const orderModal = document.getElementById('order-modal');
+const modalOverlay = document.getElementById('modal-overlay');
+const checkoutBtn = document.getElementById('checkout-btn');
+const closeModalBtn = document.getElementById('close-modal-btn');
+const checkoutForm = document.getElementById('checkout-form');
 
 // 1. ВІДКРИТТЯ ТА ЗАКРИТТЯ КОШИКА
 cartToggleBtn.addEventListener('click', () => {
@@ -59,7 +71,6 @@ document.querySelectorAll('.add-to-cart-btn').forEach(button => {
 });
 
 function addToCart(id, name, price, quantity) {
-    // Перевіряємо, чи є вже такий товар в кошику
     const existingItem = cart.find(item => item.id === id);
 
     if (existingItem) {
@@ -112,11 +123,92 @@ window.removeFromCart = function(id) {
     updateCartUI();
 };
 
-// 6. ОФОРМЛЕННЯ ЗАМОВЛЕННЯ (Проста заглушка)
-document.getElementById('checkout-btn').addEventListener('click', () => {
-    if(cart.length === 0) {
+// 6. ВІДКРИТТЯ / ЗАКРИТТЯ МОДАЛЬНОГО ВІКНА ЗАМОВЛЕННЯ
+checkoutBtn.addEventListener('click', () => {
+    if (cart.length === 0) {
         alert('Додайте товари до кошика перед оформленням!');
         return;
     }
-    alert('Дякуємо за замовлення! Цю функцію ми налаштуємо далі.');
+    // Закриваємо бічну панель кошика і відкриваємо форму
+    closeCart();
+    orderModal.classList.add('open');
+    modalOverlay.classList.add('open');
+});
+
+const closeOrderModal = () => {
+    orderModal.classList.remove('open');
+    modalOverlay.classList.remove('open');
+};
+
+closeModalBtn.addEventListener('click', closeOrderModal);
+modalOverlay.addEventListener('click', closeOrderModal);
+
+// 7. НАДІСЛАННЯ ЗАМОВЛЕННЯ В TELEGRAM
+checkoutForm.addEventListener('submit', (e) => {
+    e.preventDefault(); // Запобігаємо перезавантаженню сторінки
+
+    // Збираємо дані клієнта
+    const name = document.getElementById('client-name').value;
+    const phone = document.getElementById('client-phone').value;
+    const delivery = document.getElementById('delivery-method').value;
+    const address = document.getElementById('delivery-address').value || 'Не вказано';
+    const comment = document.getElementById('client-comment').value || 'Немає коментаря';
+
+    // Формуємо список товарів для повідомлення
+    let itemsText = '';
+    let totalSum = 0;
+
+    cart.forEach((item, index) => {
+        const itemTotal = item.price * item.quantity;
+        totalSum += itemTotal;
+        itemsText += `${index + 1}. 🧀 *${item.name}* — ${item.quantity} шт. x ${item.price} грн = ${itemTotal} грн\n`;
+    });
+
+    // Формуємо красивий текст для Telegram
+    const message = `
+📦 *НОВЕ ЗАМОВЛЕННЯ НА САЙТІ!*
+
+👤 *Клієнт:* ${name}
+📞 *Телефон:* ${phone}
+🚚 *Доставка:* ${delivery}
+📍 *Адреса:* ${address}
+
+🛒 *Товари:*
+${itemsText}
+💰 *Разом до сплати:* *${totalSum} грн*
+
+💬 *Коментар:* _${comment}_
+    `;
+
+    // API URL для надсилання повідомлення бота
+    const url = `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`;
+
+    // Надсилаємо POST-запит у Telegram
+    fetch(url, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            chat_id: TELEGRAM_CHAT_ID,
+            text: message,
+            parse_mode: 'Markdown' // Дозволяє робити текст жирним та курсивом
+        })
+    })
+    .then(response => {
+        if (response.ok) {
+            alert('Дякуємо! Ваше замовлення успішно надіслано в обробку.');
+            // Очищуємо кошик та форму
+            cart = [];
+            updateCartUI();
+            checkoutForm.reset();
+            closeOrderModal();
+        } else {
+            alert('Помилка надсилання замовлення. Перевірте правильність Telegram токенів у коді!');
+        }
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        alert('Сталася помилка з\'єднання. Спробуйте ще раз пізніше.');
+    });
 });
