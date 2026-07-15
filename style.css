@@ -757,3 +757,46 @@ body {
     84% { width: 55px; right: 0px; top: 35px; }
     100% { width: 47px; right: 8px; top: 38px; }
 }
+/* Контейнер для логотипу та кнопки в лівій частині */
+.header-left {
+    display: flex;
+    align-items: center; /* Вирівнює логотип та кнопку Про нас по вертикалі */
+    gap: 20px;           /* Відступ між логотипом та кнопкою Про нас */
+}
+
+/* Переконуємось, що шапка працює як flex-контейнер */
+.site-header {
+    display: flex;
+    justify-content: space-between; /* Розносить ліву частину, адресу та праву по краях */
+    align-items: center;            /* Вирівнює абсолютно всі елементи шапки по одній лінії */
+    padding: 10px 20px;
+}/* Кнопка "Про нас" у стилі кнопок шапки */
+.about-btn {
+    background-color: #4a3b32; /* Темний шоколадний колір, як у Кошика */
+    color: #ffffff;            /* Білий колір тексту */
+    border: none;
+    padding: 12px 24px;        /* Точні відступи, щоб кнопка була одного розміру з іншими */
+    font-size: 15px;
+    font-weight: bold;
+    border-radius: 20px;       /* Таке ж заокруглення, як у Instagram та Кошика */
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.1s ease, box-shadow 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-family: inherit;      /* Наслідує загальний шрифт сайту */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05); /* Легка елегантна тінь */
+}
+
+/* Ефект при наведенні мишкою */
+.about-btn:hover {
+    background-color: #2b211c; /* Стає насиченішою та темнішою */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Тінь стає трохи глибшою */
+    transform: translateY(-1px); /* Легкий інтерактивний підйом кнопки */
+}
+
+/* Ефект при натисканні */
+.about-btn:active {
+    transform: translateY(1px); /* Кнопка візуально прогинається при кліку */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
