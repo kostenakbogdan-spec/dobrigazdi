@@ -1,25 +1,19 @@
 <!DOCTYPE html>
 <html lang="uk">
 <head>
-    <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Буковинська сироварня "Добрі Ґазди"</title>
     
-   <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
-</head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Буковинська сироварня "Добрі Ґазди"</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-   <header class="site-header">
-        <!-- ЛІВА ЧАСТИНА: Логотип та кнопка "Про нас" -->
+    <header class="site-header">
         <div class="header-left">
             <div class="logo-container">
                 <img src="Gemini_Generated_Image_kk2uhakk2uhakk2u.png" alt="Добрі Ґазди Логотип" class="logo-img">
@@ -27,12 +21,10 @@
             <a href="about.html" class="about-btn">Про нас</a>
         </div>
 
-        <!-- ЦЕНТРАЛЬНА ЧАСТИНА: Адреса -->
         <a href="https://www.google.com/maps/search/?api=1&query=Сироварня+Добрі+Ґазди+Михайлівка" target="_blank" class="address-link">
-    Адреса: с. Михайлівка Глибоцького району, Чернівецької області
-</a>
+            Адреса: с. Михайлівка Глибоцького району, Чернівецької області
+        </a>
 
-        <!-- ПРАВА ЧАСТИНА: Кнопки Instagram та Кошик -->
         <div class="header-actions">
             <a href="https://www.instagram.com/dobrigazdi/" target="_blank" class="btn instagram-btn">
                 Наш Instagram
@@ -46,7 +38,7 @@
     <div id="cart-sidebar" class="cart-sidebar">
         <div class="cart-header">
             <h2>Ваше замовлення</h2>
-            <button id="cart-close-btn" class="close-btn">&times;</button>
+            <button id="cart-close-btn" class="close-btn">×</button>
         </div>
         <div id="cart-items-container" class="cart-items">
             <p class="empty-cart-text">Кошик порожній</p>
@@ -83,12 +75,21 @@
         <section id="cow-cheese" class="category-section">
             <h2 class="category-title">Тверді сири з коров'ячого молока</h2>
             <div class="products-grid">
-                <div class="product-card" data-id="gorsky" data-name="Сир 'Гірський'" data-price="550">
-                    <img src="гірський.jpg" alt="Сир Гірський" class="product-img">
-                    <h3>Сир "Гірський"</h3>
+
+                <div class="product-card" data-id="hirskyi" data-name="Гірський сир" data-price="350">
+                    <div class="product-img-container" style="cursor: pointer;">
+                        <img src="гірський.jpg" alt="Гірський сир" class="product-img">
+                    </div>
+                    <h3>Гірський сир</h3>
                     <p class="description">За австрійською технологією Бергкезе</p>
+                    <div class="detailed-description" style="display: none;">
+                        Гірський сир виготовляється за австрійською технологією знаменитого європейського сиру Бергкезе. Ми використовуємо відбірне коров'яче молоко та витримуємо сир у спеціальних камерах від 3 до 6 місяців.<br><br>
+                        <b>Смаковий профіль:</b> Насичений, пікантний, з вираженими горіховими та фруктовими нотками.<br>
+                        <b>Текстура:</b> Щільна, ламка, з поодинокими вічками.<br>
+                        <b>З чим смакує:</b> Чудово поєднується з легкими білими або насиченими червоними винами, виноградом, волоськими горіхами та рідким карпатським медом.
+                    </div>
                     <div class="card-footer-flex">
-                        <span class="price">550 грн/кг</span>
+                        <span class="price">350 грн/кг</span>
                         <div class="quantity-selector">
                             <button class="qty-btn minus">-</button>
                             <input type="number" class="qty-input" value="1" min="1">
@@ -97,10 +98,19 @@
                         <button class="add-to-cart-btn">В кошик</button>
                     </div>
                 </div>
+
                 <div class="product-card" data-id="glybocky" data-name="Сир 'Глибоцько-Буковинський'" data-price="550">
-                    <img src="глиб бук.jpg" alt="Сир Глибоцький" class="product-img">
+                    <div class="product-img-container" style="cursor: pointer;">
+                        <img src="глиб бук.jpg" alt="Сир Глибоцький" class="product-img">
+                    </div>
                     <h3>Сир "Глибоцько-Буковинський"</h3>
                     <p class="description">За голландською технологією Гауда</p>
+                    <div class="detailed-description" style="display: none;">
+                        Наш фірмовий сир, виготовлений за класичним рецептом голландської Гауди. Має ніжний молочний характер, який подобається всій родині.<br><br>
+                        <b>Смаковий профіль:</b> М'який, вершковий, з ледь помітним солодкуватим післясмаком.<br>
+                        <b>Текстура:</b> Еластична, однорідна, легко нарізається слайсами.<br>
+                        <b>З чим смакує:</b> Ідеальний для ранкових бутербродів, сирного плато, дитячих перекусів та запікання.
+                    </div>
                     <div class="card-footer-flex">
                         <span class="price">550 грн/кг</span>
                         <div class="quantity-selector">
@@ -111,10 +121,19 @@
                         <button class="add-to-cart-btn">В кошик</button>
                     </div>
                 </div>
+
                 <div class="product-card" data-id="ukrainsky" data-name="Сир 'Український'" data-price="550">
-                    <img src="український.jpg" alt="Сир Український" class="product-img">
+                    <div class="product-img-container" style="cursor: pointer;">
+                        <img src="український.jpg" alt="Сир Український" class="product-img">
+                    </div>
                     <h3>Сир "Український"</h3>
                     <p class="description">Класичний твердий сир</p>
+                    <div class="detailed-description" style="display: none;">
+                        Традиційний напівтвердий сир, виготовлений з пастеризованого фермерського молока. Має класичний кисломолочний сирний смак.<br><br>
+                        <b>Смаковий профіль:</b> Помірно виражений сирний, з приємною кислинкою.<br>
+                        <b>Текстура:</b> Ніжна, пластична, з дрібними круглими або кутастими вічками.<br>
+                        <b>З чим смакує:</b> Універсальний вибір для гарячих канапок, піци, макаронів та повсякденного столу.
+                    </div>
                     <div class="card-footer-flex">
                         <span class="price">550 грн/кг</span>
                         <div class="quantity-selector">
@@ -125,10 +144,19 @@
                         <button class="add-to-cart-btn">В кошик</button>
                     </div>
                 </div>
+
                 <div class="product-card" data-id="nizhny" data-name="Сир 'Ніжний'" data-price="550">
-                    <img src="ніжний.png" alt="Сир Ніжний" class="product-img">
+                    <div class="product-img-container" style="cursor: pointer;">
+                        <img src="ніжний.png" alt="Сир Ніжний" class="product-img">
+                    </div>
                     <h3>Сир "Ніжний"</h3>
                     <p class="description">М'який та делікатний смак</p>
+                    <div class="detailed-description" style="display: none;">
+                        Назва говорить сама за себе — цей сир створений для любителів тонких вершкових відтінків без зайвої гостроти чи солі.<br><br>
+                        <b>Смаковий профіль:</b> Максимально м'який, солодкувато-вершковий.<br>
+                        <b>Текстура:</b> Дуже ніжна, м'яко плавиться в роті.<br>
+                        <b>З чим смакує:</b> Чудово поєднується зі свіжими фруктами (груша, яблуко), легким медом та білим хлібом.
+                    </div>
                     <div class="card-footer-flex">
                         <span class="price">550 грн/кг</span>
                         <div class="quantity-selector">
@@ -139,10 +167,19 @@
                         <button class="add-to-cart-btn">В кошик</button>
                     </div>
                 </div>
+
                 <div class="product-card" data-id="parmezan" data-name="Сир 'Пармезан'" data-price="550">
-                    <img src="пармезан.jpg" alt="Сир 'Пармезан'" class="product-img">
+                    <div class="product-img-container" style="cursor: pointer;">
+                        <img src="пармезан.jpg" alt="Сир 'Пармезан'" class="product-img">
+                    </div>
                     <h3>Сир "Пармезан"</h3>
                     <p class="description">Витриманий крафтовий сир</p>
+                    <div class="detailed-description" style="display: none;">
+                        Наш погляд на італійську класику. Сир довгої витримки, який має щільну структуру та виразний, глибокий смак.<br><br>
+                        <b>Смаковий профіль:</b> Глибокий, солонувато-пікантний, з виразними кристаликами кальцію.<br>
+                        <b>Текстура:</b> Дуже тверда, ламка, кришиться при нарізанні.<br>
+                        <b>З чим смакує:</b> Незамінний для пасти, салатів (Цезар), ризотто та як вишукана самостійна закуска до шляхетних сухих вин.
+                    </div>
                     <div class="card-footer-flex">
                         <span class="price">550 грн/кг</span>
                         <div class="quantity-selector">
@@ -153,10 +190,19 @@
                         <button class="add-to-cart-btn">В кошик</button>
                     </div>
                 </div>
+
                 <div class="product-card" data-id="zagadkovy" data-name="Сир 'Загадковий'" data-price="550">
-                    <img src="загадковий.jpg" alt="Сир 'Загадковий'" class="product-img">
+                    <div class="product-img-container" style="cursor: pointer;">
+                        <img src="загадковий.jpg" alt="Сир 'Загадковий'" class="product-img">
+                    </div>
                     <h3>Сир "Загадковий"</h3>
                     <p class="description">Особливий авторський рецепт</p>
+                    <div class="detailed-description" style="display: none;">
+                        Унікальний сир, виготовлений за таємним авторським рецептом нашого головного сировара. Поєднує в собі найкращі традиції сироваріння.<br><br>
+                        <b>Смаковий профіль:</b> Складний, багатогранний смак, який поступово розкривається від ніжно-вершкового до пряно-горіхового.<br>
+                        <b>Текстура:</b> Щільна, оксамитова.<br>
+                        <b>З чим смакує:</b> Рекомендуємо дегустувати окремо від інших продуктів, щоб повністю оцінити багатий букет смаку.
+                    </div>
                     <div class="card-footer-flex">
                         <span class="price">550 грн/кг</span>
                         <div class="quantity-selector">
@@ -167,10 +213,19 @@
                         <button class="add-to-cart-btn">В кошик</button>
                     </div>
                 </div>
+
                 <div class="product-card" data-id="chervonodibrovsky" data-name="Сир 'Червонодібровський'" data-price="550">
-                    <img src="червонодібровський.png" alt="Сир 'Червонodibrovsky'" class="product-img">
-                    <h3>Сир "Червонodibrovsky"</h3>
+                    <div class="product-img-container" style="cursor: pointer;">
+                        <img src="червонодібровський.png" alt="Сир 'Червонodibrovsky'" class="product-img">
+                    </div>
+                    <h3>Сир "Червонодібровський"</h3>
                     <p class="description">За італійською технологією Качотта з пажитником або прованськими травами</p>
+                    <div class="detailed-description" style="display: none;">
+                        Крафтовий напівм'який сир Качотта. Має неймовірний аромат завдяки додаванню пряного пажитника або суміші прованських трав.<br><br>
+                        <b>Смаковий профіль:</b> Ніжний вершковий смак сиру гармонійно доповнюється пряним горіховим присмаком пажитника.<br>
+                        <b>Текстура:</b> М'яка, пластична, з вкрапленнями насіння прянощів.<br>
+                        <b>З чим смакує:</b> Чудово підійде до свіжих овочів, нарізки на святковий стіл або для створення вишуканих гарячих тостів.
+                    </div>
                     <div class="card-footer-flex">
                         <span class="price">550 грн/кг</span>
                         <div class="quantity-selector">
@@ -181,10 +236,19 @@
                         <button class="add-to-cart-btn">В кошик</button>
                     </div>
                 </div>
+
                 <div class="product-card" data-id="mykhailivsky" data-name="Сир 'Михайлівський'" data-price="550">
-                    <img src="михайлівський.png" alt="Сир 'Михайлівський'" class="product-img">
+                    <div class="product-img-container" style="cursor: pointer;">
+                        <img src="михайлівський.png" alt="Сир 'Михайлівський'" class="product-img">
+                    </div>
                     <h3>Сир "Михайлівський"</h3>
                     <p class="description">За італійською технологією Качотта</p>
+                    <div class="detailed-description" style="display: none;">
+                        Наш локальний шедевр — чиста класична Качотта, названа на честь села, де розташована наша сироварня. Справжній смак Буковини.<br><br>
+                        <b>Смаковий профіль:</b> Чистий молочний смак з легкою солодкістю та ніжним ароматом свіжого молока.<br>
+                        <b>Текстура:</b> Пружна, однорідна, пластична.<br>
+                        <b>З чим смакує:</b> Чудово пасує до ранкової кави, свіжої випічки та легких фруктових салатів.
+                    </div>
                     <div class="card-footer-flex">
                         <span class="price">550 грн/кг</span>
                         <div class="quantity-selector">
@@ -201,10 +265,19 @@
         <section id="goat-cheese" class="category-section">
             <h2 class="category-title">Тверді сири з козячого молока</h2>
             <div class="products-grid">
-                <div class="product-card" data-id="goat_wine" data-name="Сир Козячий у вині" data-price="500">
-                    <img src="козячий у вині.jpg" alt="Сир Козячий у вині" class="product-img">
+
+                <div class="product-card" data-id="goat_wine" data-name="Сир Козячий у вині" data-price="750">
+                    <div class="product-img-container" style="cursor: pointer;">
+                        <img src="козячий у вині.jpg" alt="Сир Козячий у вині" class="product-img">
+                    </div>
                     <h3>Сир Козячий у вині</h3>
                     <p class="description">Вишуканий сир з винними нотками</p>
+                    <div class="detailed-description" style="display: none;">
+                        Вишуканий делікатес. Головки козячого сиру під час дозрівання регулярно вимочуються у натуральному червоному вині, завдяки чому вони отримують унікальну фіолетову скоринку та глибокий аромат.<br><br>
+                        <b>Смаковий профіль:</b> Легкий фруктовий винний присмак ідеально балансує характерну пікантність козячого молока.<br>
+                        <b>Текстура:</b> Щільна, злегка крихка.<br>
+                        <b>З чим смакує:</b> Справжня прикраса сирної тарілки! Подавайте з інжиром, грушею та келихом сухого червоного вина.
+                    </div>
                     <div class="card-footer-flex">
                         <span class="price">750 грн/кг</span>
                         <div class="quantity-selector">
@@ -215,10 +288,19 @@
                         <button class="add-to-cart-btn">В кошик</button>
                     </div>
                 </div>
+
                 <div class="product-card" data-id="goat_aged" data-name="Сир Козячий витриманий" data-price="700">
-                    <img src="козячий сир.JPG" alt="Сир Козячий витриманий" class="product-img">
+                    <div class="product-img-container" style="cursor: pointer;">
+                        <img src="козячий сир.JPG" alt="Сир Козячий витриманий" class="product-img">
+                    </div>
                     <h3>Сир Козячий витриманий</h3>
                     <p class="description">Класичний витриманий козячий сир</p>
+                    <div class="detailed-description" style="display: none;">
+                        Справжнє золото нашої сироварні. Виготовляється виключно зі свіжого козячого молока та витримується кілька місяців для досягнення благородного смаку.<br><br>
+                        <b>Смаковий профіль:</b> Багатий, глибокий, помірно пікантний з характерним козячим післясмаком.<br>
+                        <b>Текстура:</b> Тверда, ламка, з гарними кристаликами кальцію.<br>
+                        <b>З чим смакує:</b> Чудово смакує з медом, горіхами, сухофруктами та сухими винами.
+                    </div>
                     <div class="card-footer-flex">
                         <span class="price">700 грн/кг</span>
                         <div class="quantity-selector">
@@ -229,11 +311,19 @@
                         <button class="add-to-cart-btn">В кошик</button>
                     </div>
                 </div>
-               
+
                 <div class="product-card" data-id="goat_smoked" data-name="Копчений козячий сир" data-price="500">
-                    <img src="козячий копчений.JPG" alt="Копчений козячий сир" class="product-img">
+                    <div class="product-img-container" style="cursor: pointer;">
+                        <img src="козячий копчений.JPG" alt="Копчений козячий сир" class="product-img">
+                    </div>
                     <h3>Копчений козячий сир</h3>
                     <p class="description">Ароматний натурального копчення</p>
+                    <div class="detailed-description" style="display: none;">
+                        Унікальний продукт, який проходить процес натурального копчення на вільхових дровах. Це надає сиру надзвичайного димного відтінку.<br><br>
+                        <b>Смаковий профіль:</b> Яскравий димний аромат з ніжною солонуватістю та приємним козячим післясмаком.<br>
+                        <b>Текстура:</b> Пружна, напівтверда.<br>
+                        <b>З чим смакує:</b> Чудова самостійна закуска, а також інгредієнт для пікантних салатів та теплих бутербродів.
+                    </div>
                     <div class="card-footer-flex">
                         <span class="price">500 грн/кг</span>
                         <div class="quantity-selector">
@@ -248,250 +338,354 @@
         </section>
 
         <section id="dairy-products" class="category-section">
-    <h2>Кисломолочні та молочні продукти</h2>
-    
-    <div class="products-grid">
+            <h2 class="category-title">Кисломолочні та молочні продукти</h2>
+            <div class="products-grid">
 
-        <div class="product-card" data-id="budz" data-name="Будз" data-price="240">
-            <img src="будз.JPG" alt="Будз" class="product-img">
-            <h3>Будз</h3>
-            <p class="description">Молодий та соковитий сир</p>
-            <div class="card-footer-flex">
-                <span class="price">240 грн/кг</span>
-                <div class="quantity-selector">
-                    <button class="qty-btn minus">-</button>
-                    <input type="number" class="qty-input" value="1" min="1">
-                    <button class="qty-btn plus">+</button>
+                <div class="product-card" data-id="budz" data-name="Будз" data-price="240">
+                    <div class="product-img-container" style="cursor: pointer;">
+                        <img src="будз.JPG" alt="Будз" class="product-img">
+                    </div>
+                    <h3>Будз</h3>
+                    <p class="description">Молодий та соковитий сир</p>
+                    <div class="detailed-description" style="display: none;">
+                        Традиційний карпатський сир. Молодий, свіжий, з легким димним ароматом, отриманим під час легкого підкопчування на сироварні.<br><br>
+                        <b>Смаковий профіль:</b> Ніжний молочний, ледь солоний з приємним ароматом натурального диму.<br>
+                        <b>Текстура:</b> Пружна, соковита, м'яка.<br>
+                        <b>З чим смакує:</b> Неймовірно смакує зі свіжим помідором, зеленню, чорним хлібом або підсмаженим на грилі.
+                    </div>
+                    <div class="card-footer-flex">
+                        <span class="price">240 грн/кг</span>
+                        <div class="quantity-selector">
+                            <button class="qty-btn minus">-</button>
+                            <input type="number" class="qty-input" value="1" min="1">
+                            <button class="qty-btn plus">+</button>
+                        </div>
+                        <button class="add-to-cart-btn">В кошик</button>
+                    </div>
                 </div>
-                <button class="add-to-cart-btn">В кошик</button>
-            </div>
-        </div>
-        <div class="product-card" data-id="yogurt" data-name="Молоко" data-price="70">
-            <img src="молоко.JPG" alt="Молоко" class="product-img">
-            <h3>Молоко</h3>
-            <p class="description">Свіже натуральне коров'яче молоко</p>
-            <div class="card-footer-flex">
-                <span class="price">60грн/1л</span>
-                <div class="quantity-selector">
-                    <button class="qty-btn minus">-</button>
-                    <input type="number" class="qty-input" value="1" min="1">
-                    <button class="qty-btn plus">+</button>
-                </div>
-                <button class="add-to-cart-btn">В кошик</button>
-            </div>
-        </div>
-        <div class="product-card" data-id="brynza_pieces" data-name="Бринза шматочками" data-price="250">
-            <img src="бринза.JPG" alt="Бринза шматочками" class="product-img">
-            <h3>Бринза шматочками</h3>
-            <p class="description">Натуральна солона бринза</p>
-            <div class="card-footer-flex">
-                <span class="price">100грн/0.4кг</span>
-                <div class="quantity-selector">
-                    <button class="qty-btn minus">-</button>
-                    <input type="number" class="qty-input" value="1" min="1">
-                    <button class="qty-btn plus">+</button>
-                </div>
-                <button class="add-to-cart-btn">В кошик</button>
-            </div>
-        </div>
 
-        <div class="product-card" data-id="brynza_grated" data-name="Бринза терта вакуумована" data-price="260">
-            <img src="бринза терта.JPG" alt="Бринза терта" class="product-img">
-            <h3>Бринза терта</h3>
-            <p class="description">Суха подрібнена бринза 200г</p>
-            <div class="card-footer-flex">
-                <span class="price">120 грн</span>
-                <div class="quantity-selector">
-                    <button class="qty-btn minus">-</button>
-                    <input type="number" class="qty-input" value="1" min="1">
-                    <button class="qty-btn plus">+</button>
+                <div class="product-card" data-id="milk" data-name="Молоко" data-price="60">
+                    <div class="product-img-container" style="cursor: pointer;">
+                        <img src="молоко.JPG" alt="Молоко" class="product-img">
+                    </div>
+                    <h3>Молоко</h3>
+                    <p class="description">Свіже натуральне коров'яче молоко</p>
+                    <div class="detailed-description" style="display: none;">
+                        Свіже, цільне фермерське коров'яче молоко. Натуральний продукт високої якості без жодної термічної чи хімічної обробки.<br><br>
+                        <b>Смаковий профіль:</b> Солодкуватий, насичений вершковий смак справжнього домашнього молока.<br>
+                        <b>З чим смакує:</b> Чудово для пиття в чистому вигляді, додавання до кави, каш або приготування домашніх десертів.
+                    </div>
+                    <div class="card-footer-flex">
+                        <span class="price">60 грн/1л</span>
+                        <div class="quantity-selector">
+                            <button class="qty-btn minus">-</button>
+                            <input type="number" class="qty-input" value="1" min="1">
+                            <button class="qty-btn plus">+</button>
+                        </div>
+                        <button class="add-to-cart-btn">В кошик</button>
+                    </div>
                 </div>
-                <button class="add-to-cart-btn">В кошик</button>
-            </div>
-        </div>
 
-        <div class="product-card" data-id="yogurt" data-name="Йогурт питний" data-price="120">
-            <img src="йогурт.JPG" alt="Йогурт питний" class="product-img">
-            <h3>Йогурт питний</h3>
-            <p class="description">Натуральний коров'ячий йогурт 3% жиру</p>
-            <div class="card-footer-flex">
-                <span class="price">70 грн/0.9л</span>
-                <div class="quantity-selector">
-                    <button class="qty-btn minus">-</button>
-                    <input type="number" class="qty-input" value="1" min="1">
-                    <button class="qty-btn plus">+</button>
+                <div class="product-card" data-id="brynza_pieces" data-name="Бринза шматочками" data-price="100">
+                    <div class="product-img-container" style="cursor: pointer;">
+                        <img src="бринза.JPG" alt="Бринза шматочками" class="product-img">
+                    </div>
+                    <h3>Бринза шматочками</h3>
+                    <p class="description">Натуральна солона бринза</p>
+                    <div class="detailed-description" style="display: none;">
+                        Традиційна буковинська бринза, витримана у розсолі. Має приємний виразний солоний смак.<br><br>
+                        <b>Смаковий профіль:</b> Солоний, насичений кисломолочний смак.<br>
+                        <b>Текстура:</b> Ламка, злегка крохка.<br>
+                        <b>З чим смакує:</b> Ідеальний додаток до свіжих літніх салатів, овочевих нарізок або просто з лавашем та зеленню.
+                    </div>
+                    <div class="card-footer-flex">
+                        <span class="price">100 грн/0.4кг</span>
+                        <div class="quantity-selector">
+                            <button class="qty-btn minus">-</button>
+                            <input type="number" class="qty-input" value="1" min="1">
+                            <button class="qty-btn plus">+</button>
+                        </div>
+                        <button class="add-to-cart-btn">В кошик</button>
+                    </div>
                 </div>
-                <button class="add-to-cart-btn">В кошик</button>
-            </div>
-        </div>
 
-        <div class="product-card" data-id="kefir" data-name="Кефір" data-price="90">
-            <img src="кефір.JPG" alt="Кефір" class="product-img">
-            <h3>Кефір</h3>
-            <p class="description">Класичний освіжаючий кисломолочний напій</p>
-            <div class="card-footer-flex">
-                <span class="price">70 грн/0.9л</span>
-                <div class="quantity-selector">
-                    <button class="qty-btn minus">-</button>
-                    <input type="number" class="qty-input" value="1" min="1">
-                    <button class="qty-btn plus">+</button>
+                <div class="product-card" data-id="brynza_grated" data-name="Бринза терта вакуумована" data-price="120">
+                    <div class="product-img-container" style="cursor: pointer;">
+                        <img src="бринза терта.JPG" alt="Бринза терта" class="product-img">
+                    </div>
+                    <h3>Бринза терта</h3>
+                    <p class="description">Суха подрібнена бринза 200г</p>
+                    <div class="detailed-description" style="display: none;">
+                        Справжній секретний інгредієнт для поціновувачів гуцульської кухні. Спеціально висушена та дрібно натерта витримана бринза у герметичній вакуумній упаковці.<br><br>
+                        <b>Смаковий профіль:</b> Дуже гострий, насичено-солоний, концентрований смак.<br>
+                        <b>З чим смакує:</b> Обов'язково додавайте до гарячого карпатського баношу, кулеші, вареної картоплі чи пасти. Має довгий термін зберігання.
+                    </div>
+                    <div class="card-footer-flex">
+                        <span class="price">120 грн</span>
+                        <div class="quantity-selector">
+                            <button class="qty-btn minus">-</button>
+                            <input type="number" class="qty-input" value="1" min="1">
+                            <button class="qty-btn plus">+</button>
+                        </div>
+                        <button class="add-to-cart-btn">В кошик</button>
+                    </div>
                 </div>
-                <button class="add-to-cart-btn">В кошик</button>
-            </div>
-        </div>
 
-        <div class="product-card" data-id="acidophilus" data-name="Сир кисломолочний" data-price="180">
-            <img src="творог.jpg" alt="Сир кисломолочний" class="product-img">
-            <h3>Сир кисломолочний</h3>
-            <p class="description">Ніжний домашній сир з коров'ячого молока</p>
-            <div class="card-footer-flex">
-                <span class="price">180 грн/кг</span>
-                <div class="quantity-selector">
-                    <button class="qty-btn minus">-</button>
-                    <input type="number" class="qty-input" value="1" min="1">
-                    <button class="qty-btn plus">+</button>
+                <div class="product-card" data-id="yogurt" data-name="Йогурт питний" data-price="70">
+                    <div class="product-img-container" style="cursor: pointer;">
+                        <img src="йогурт.JPG" alt="Йогурт питний" class="product-img">
+                    </div>
+                    <h3>Йогурт питний</h3>
+                    <p class="description">Натуральний коров'ячий йогурт 3% жиру</p>
+                    <div class="detailed-description" style="display: none;">
+                        Живий корисний йогурт, виготовлений на основі живих молочнокислих бактерій. Повністю натуральний склад без додавання цукру, барвників та консервантів.<br><br>
+                        <b>Смаковий профіль:</b> Чистий, м'який, ніжно-вершковий з приємною легкою кислинкою.<br>
+                        <b>З чим смакує:</b> Чудово на сніданок, для заправки фруктових салатів, приготування соусів або як здоровий щоденний перекус.
+                    </div>
+                    <div class="card-footer-flex">
+                        <span class="price">70 грн/0.9л</span>
+                        <div class="quantity-selector">
+                            <button class="qty-btn minus">-</button>
+                            <input type="number" class="qty-input" value="1" min="1">
+                            <button class="qty-btn plus">+</button>
+                        </div>
+                        <button class="add-to-cart-btn">В кошик</button>
+                    </div>
                 </div>
-                <button class="add-to-cart-btn">В кошик</button>
-            </div>
-        </div>
 
-        <div class="product-card" data-id="butter" data-name="Масло вершкове" data-price="320">
-            <img src="масло.jpg" alt="Масло вершкове" class="product-img">
-            <h3>Масло вершкове</h3>
-            <p class="description">Натуральне домашнє масло з відбірних вершків</p>
-            <div class="card-footer-flex">
-                <span class="price">320 грн/кг</span>
-                <div class="quantity-selector">
-                    <button class="qty-btn minus">-</button>
-                    <input type="number" class="qty-input" value="1" min="1">
-                    <button class="qty-btn plus">+</button>
+                <div class="product-card" data-id="kefir" data-name="Кефір" data-price="70">
+                    <div class="product-img-container" style="cursor: pointer;">
+                        <img src="кефір.JPG" alt="Кефір" class="product-img">
+                    </div>
+                    <h3>Кефір</h3>
+                    <p class="description">Класичний освіжаючий кисломолочний напій</p>
+                    <div class="detailed-description" style="display: none;">
+                        Натуральний корисний напій, виготовлений на оригінальних кефірних грибках. Сприяє нормалізації травлення та покращенню самопочуття.<br><br>
+                        <b>Смаковий профіль:</b> Освіжаючий, з характерною приємною різкістю та легкою кислинкою.<br>
+                        <b>З чим смакує:</b> Прекрасний самостійний напій для легкого завершення дня, а також основа для домашньої випічки або окрошки.
+                    </div>
+                    <div class="card-footer-flex">
+                        <span class="price">70 грн/0.9л</span>
+                        <div class="quantity-selector">
+                            <button class="qty-btn minus">-</button>
+                            <input type="number" class="qty-input" value="1" min="1">
+                            <button class="qty-btn plus">+</button>
+                        </div>
+                        <button class="add-to-cart-btn">В кошик</button>
+                    </div>
                 </div>
-                <button class="add-to-cart-btn">В кошик</button>
-            </div>
-        </div>
 
-        <div class="product-card" data-id="pigtail" data-name="Сир Косичка" data-price="290">
-            <img src="косичка.jpg" alt="Сир Косичка" class="product-img">
-            <h3>Сир "Косичка"</h3>
-            <p class="description">Волокнистий солоний сир, ідеальний до пінного</p>
-            <div class="card-footer-flex">
-                <span class="price">290 грн/кг</span>
-                <div class="quantity-selector">
-                    <button class="qty-btn minus">-</button>
-                    <input type="number" class="qty-input" value="1" min="1">
-                    <button class="qty-btn plus">+</button>
+                <div class="product-card" data-id="acidophilus" data-name="Сир кисломолочний" data-price="180">
+                    <div class="product-img-container" style="cursor: pointer;">
+                        <img src="творог.jpg" alt="Сир кисломолочний" class="product-img">
+                    </div>
+                    <h3>Сир кисломолочний</h3>
+                    <p class="description">Ніжний домашній сир з коров'ячого молока</p>
+                    <div class="detailed-description" style="display: none;">
+                        Ніжний та розсипчастий кисломолочний сир (творог) середньої жирності. Виготовляється за традиційним домашнім способом з цільного коров'ячого молока.<br><br>
+                        <b>Смаковий профіль:</b> М'який вершково-молочний з ледь вловною кислинкою.<br>
+                        <b>Текстура:</b> М'яка, зерниста, соковита.<br>
+                        <b>З чим смакує:</b> Ідеальний для сирників, запіканок, налисників або просто зі сметаною, медом чи ягодами на сніданок.
+                    </div>
+                    <div class="card-footer-flex">
+                        <span class="price">180 грн/кг</span>
+                        <div class="quantity-selector">
+                            <button class="qty-btn minus">-</button>
+                            <input type="number" class="qty-input" value="1" min="1">
+                            <button class="qty-btn plus">+</button>
+                        </div>
+                        <button class="add-to-cart-btn">В кошик</button>
+                    </div>
                 </div>
-                <button class="add-to-cart-btn">В кошик</button>
-            </div>
-        </div>
 
-        <div class="product-card" data-id="mozarella" data-name="Моцарелла" data-price="260">
-            <img src="кульки з моцарели.jpg" alt="Моцарелла" class="product-img">
-            <h3>Моцарелла</h3>
-            <p class="description">Ніжна моцарелла у сироватці</p>
-            <div class="card-footer-flex">
-                <span class="price">260 грн/кг</span>
-                <div class="quantity-selector">
-                    <button class="qty-btn minus">-</button>
-                    <input type="number" class="qty-input" value="1" min="1">
-                    <button class="qty-btn plus">+</button>
+                <div class="product-card" data-id="butter" data-name="Масло вершкове" data-price="320">
+                    <div class="product-img-container" style="cursor: pointer;">
+                        <img src="масло.jpg" alt="Масло вершкове" class="product-img">
+                    </div>
+                    <h3>Масло вершкове</h3>
+                    <p class="description">Натуральне домашнє масло з відбірних вершків</p>
+                    <div class="detailed-description" style="display: none;">
+                        Справжнє солодковершкове масло екстра-класу. Виготовляється методом збивання свіжих пастеризованих вершків високої жирності.<br><br>
+                        <b>Смаковий профіль:</b> Насичений, солодко-вершковий аромат свіжих вершків без жодних сторонніх присмаків.<br>
+                        <b>Текстура:</b> Щільна, однорідна, пластична, легко мажеться при кімнатній температурі.<br>
+                        <b>З чим смакує:</b> Для ідеальних бутербродів, додавання до гарячих каш, пюре та вишуканої домашньої випічки.
+                    </div>
+                    <div class="card-footer-flex">
+                        <span class="price">320 грн/кг</span>
+                        <div class="quantity-selector">
+                            <button class="qty-btn minus">-</button>
+                            <input type="number" class="qty-input" value="1" min="1">
+                            <button class="qty-btn plus">+</button>
+                        </div>
+                        <button class="add-to-cart-btn">В кошик</button>
+                    </div>
                 </div>
-                <button class="add-to-cart-btn">В кошик</button>
-            </div>
-        </div>
 
-        <div class="product-card" data-id="cheese_cubes" data-name="Баночка *сир зі спеціями*" data-price="270">
-            <img src="баночки.JPG" alt="Сирні кубики" class="product-img">
-            <h3>Баночка *сир зі спеціями*</h3>
-            <p class="description">Пікантні сирні кубики в ароматному маслі з травами</p>
-            <div class="card-footer-flex">
-                <span class="price">270 грн/уп</span>
-                <div class="quantity-selector">
-                    <button class="qty-btn minus">-</button>
-                    <input type="number" class="qty-input" value="1" min="1">
-                    <button class="qty-btn plus">+</button>
+                <div class="product-card" data-id="pigtail" data-name="Сир Косичка" data-price="290">
+                    <div class="product-img-container" style="cursor: pointer;">
+                        <img src="косичка.jpg" alt="Сир Косичка" class="product-img">
+                    </div>
+                    <h3>Сир "Косичка"</h3>
+                    <p class="description">Волокнистий солоний сир, ідеальний до пінного</p>
+                    <div class="detailed-description" style="display: none;">
+                        Улюблений багатьма розсільний волокнистий сир, який ми заплітаємо вручну. Має чудовий виражений солоний смак та апетитний аромат.<br><br>
+                        <b>Смаковий профіль:</b> Помірно солоний, з насиченим молочним характером.<br>
+                        <b>Текстура:</b> Волокниста, пружна, сир легко розділяється на тонкі довгі ниточки.<br>
+                        <b>З чим смакує:</b> Класична закуска до світлого пінного, а також чудовий солоний перекус у дорозі.
+                    </div>
+                    <div class="card-footer-flex">
+                        <span class="price">290 грн/кг</span>
+                        <div class="quantity-selector">
+                            <button class="qty-btn minus">-</button>
+                            <input type="number" class="qty-input" value="1" min="1">
+                            <button class="qty-btn plus">+</button>
+                        </div>
+                        <button class="add-to-cart-btn">В кошик</button>
+                    </div>
                 </div>
-                <button class="add-to-cart-btn">В кошик</button>
-            </div>
-        </div>
 
-        <div class="product-card" data-id="chocolate_dessert" data-name="Сирки в шоколаді" data-price="35">
-            <img src="сирки.JPG" alt="Сирки в шоколаді" class="product-img">
-            <h3>Сирки в шоколаді</h3>
-            <p class="description">Солодкі сиркові десерти у справжній глазурі</p>
-            <div class="card-footer-flex">
-                <span class="price">35 грн/шт</span>
-                <div class="quantity-selector">
-                    <button class="qty-btn minus">-</button>
-                    <input type="number" class="qty-input" value="1" min="1">
-                    <button class="qty-btn plus">+</button>
+                <div class="product-card" data-id="mozarella" data-name="Моцарелла" data-price="260">
+                    <div class="product-img-container" style="cursor: pointer;">
+                        <img src="кульки з моцарели.jpg" alt="Моцарелла" class="product-img">
+                    </div>
+                    <h3>Моцарелла</h3>
+                    <p class="description">Ніжна моцарелла у сироватці</p>
+                    <div class="detailed-description" style="display: none;">
+                        Класичні білосніжні соковиті кульки моцарелли, що зберігаються у слабосолоній натуральній сироватці для збереження максимальної ніжності.<br><br>
+                        <b>Смаковий профіль:</b> Дуже ніжний, прісно-молочний, делікатний смак.<br>
+                        <b>Текстура:</b> Пружна, волокниста та дуже соковита.<br>
+                        <b>З чим смакує:</b> Основа для салату Капрезе (зі стиглими томатами, базиліком та оливковою олією), а також ідеально плавиться на гарячій піці.
+                    </div>
+                    <div class="card-footer-flex">
+                        <span class="price">260 грн/кг</span>
+                        <div class="quantity-selector">
+                            <button class="qty-btn minus">-</button>
+                            <input type="number" class="qty-input" value="1" min="1">
+                            <button class="qty-btn plus">+</button>
+                        </div>
+                        <button class="add-to-cart-btn">В кошик</button>
+                    </div>
                 </div>
-                <button class="add-to-cart-btn">В кошик</button>
-            </div>
-        </div>
 
-        <div class="product-card" data-id="cream_sourcream" data-name=" Сметана" data-price="140">
-            <img src="сметана та вершки.JPG" alt="Вершки та сметана" class="product-img">
-            <h3>Сметана</h3>
-            <p class="description">Густа домашня сметана</p>
-            <div class="card-footer-flex">
-                <span class="price">120 грн/0.5л</span>
-                <div class="quantity-selector">
-                    <button class="qty-btn minus">-</button>
-                    <input type="number" class="qty-input" value="1" min="1">
-                    <button class="qty-btn plus">+</button>
+                <div class="product-card" data-id="cheese_cubes" data-name="Баночка *сир зі спеціями*" data-price="270">
+                    <div class="product-img-container" style="cursor: pointer;">
+                        <img src="баночки.JPG" alt="Сирні кубики" class="product-img">
+                    </div>
+                    <h3>Баночка *сир зі спеціями*</h3>
+                    <p class="description">Пікантні сирні кубики в ароматному маслі з травами</p>
+                    <div class="detailed-description" style="display: none;">
+                        Один із наших бестселерів. Кубики витриманого розсільного сиру, законсервовані в духмяній олії першого віджиму з додаванням суміші карпатських та прованських трав, часнику та спецій.<br><br>
+                        <b>Смаковий профіль:</b> Гострий, солоний, насичений прянощами смак сиру та неймовірно ароматна олія.<br>
+                        <b>З чим смакує:</b> Чудова готова самостійна закуска до столу. Також олію з баночки можна використовувати для заправки свіжих салатів.
+                    </div>
+                    <div class="card-footer-flex">
+                        <span class="price">270 грн/уп</span>
+                        <div class="quantity-selector">
+                            <button class="qty-btn minus">-</button>
+                            <input type="number" class="qty-input" value="1" min="1">
+                            <button class="qty-btn plus">+</button>
+                        </div>
+                        <button class="add-to-cart-btn">В кошик</button>
+                    </div>
                 </div>
-                <button class="add-to-cart-btn">В кошик</button>
-            </div>
-        </div>
-         <div class="product-card" data-id="cream_sourcream" data-name="Вершки" data-price="140">
-            <img src="сметана та вершки.JPG" alt="Вершки та сметана" class="product-img">
-            <h3>Вершки</h3>
-            <p class="description">Ніжні солоденькі вершки</p>
-            <div class="card-footer-flex">
-                <span class="price">140 грн/0.5л</span>
-                <div class="quantity-selector">
-                    <button class="qty-btn minus">-</button>
-                    <input type="number" class="qty-input" value="1" min="1">
-                    <button class="qty-btn plus">+</button>
-                </div>
-                <button class="add-to-cart-btn">В кошик</button>
-            </div>
-        </div>
-        
 
-    </div> </section> 
-  </main>
-  <footer class="site-footer">
+                <div class="product-card" data-id="chocolate_dessert" data-name="Сирки в шоколаді" data-price="35">
+                    <div class="product-img-container" style="cursor: pointer;">
+                        <img src="сирки.JPG" alt="Сирки в шоколаді" class="product-img">
+                    </div>
+                    <h3>Сирки в шоколаді</h3>
+                    <p class="description">Солодкі сиркові десерти у справжній глазурі</p>
+                    <div class="detailed-description" style="display: none;">
+                        Улюблені натуральні ласощі для дітей та дорослих. Ніжна солодка сирна маса з додаванням ванілі, вкрита товстим хрустким шаром справжнього шоколаду.<br><br>
+                        <b>Смаковий профіль:</b> Солодкий, ванільно-сирний з насиченим шоколадним смаком.<br>
+                        <b>Текстура:</b> Однорідна, тане в роті.<br>
+                        <b>З чим смакує:</b> Ідеальний десерт до кави, чаю чи какао, який набагато корисніший за звичайні магазинні цукерки.
+                    </div>
+                    <div class="card-footer-flex">
+                        <span class="price">35 грн/шт</span>
+                        <div class="quantity-selector">
+                            <button class="qty-btn minus">-</button>
+                            <input type="number" class="qty-input" value="1" min="1">
+                            <button class="qty-btn plus">+</button>
+                        </div>
+                        <button class="add-to-cart-btn">В кошик</button>
+                    </div>
+                </div>
+
+                <div class="product-card" data-id="sourcream" data-name="Сметана" data-price="120">
+                    <div class="product-img-container" style="cursor: pointer;">
+                        <img src="сметана та вершки.JPG" alt="Сметана" class="product-img">
+                    </div>
+                    <h3>Сметана</h3>
+                    <p class="description">Густа домашня сметана</p>
+                    <div class="detailed-description" style="display: none;">
+                        Справжня сільська густа сметана, виготовлена шляхом сепарування свіжого незбираного молока та заквашування корисними культурами.<br><br>
+                        <b>Смаковий профіль:</b> Солодкувато-вершковий, насичений домашній смак без зайвої кислоти.<br>
+                        <b>Текстура:</b> Настільки густа, що в ній буквально «стоїть ложка».<br>
+                        <b>З чим смакує:</b> Незамінна до українського борщу, гарячих вареників, дерунів, сирників або як основа для десертних кремів.
+                    </div>
+                    <div class="card-footer-flex">
+                        <span class="price">120 грн/0.5л</span>
+                        <div class="quantity-selector">
+                            <button class="qty-btn minus">-</button>
+                            <input type="number" class="qty-input" value="1" min="1">
+                            <button class="qty-btn plus">+</button>
+                        </div>
+                        <button class="add-to-cart-btn">В кошик</button>
+                    </div>
+                </div>
+
+                <div class="product-card" data-id="cream" data-name="Вершки" data-price="140">
+                    <div class="product-img-container" style="cursor: pointer;">
+                        <img src="сметана та вершки.JPG" alt="Вершки" class="product-img">
+                    </div>
+                    <h3>Вершки</h3>
+                    <p class="description">Ніжні солоденькі вершки</p>
+                    <div class="detailed-description" style="display: none;">
+                        Свіжі, густі питні вершки високої жирності, зняті безпосередньо з цільного ранкового молока.<br><br>
+                        <b>Смаковий профіль:</b> Ніжний, виражений солодкувато-молочний смак.<br>
+                        <b>З чим смакує:</b> Чудово пом'якшують смак кави, ідеальні для приготування ніжних вершкових соусів, крем-супів та збивання у десертні муси.
+                    </div>
+                    <div class="card-footer-flex">
+                        <span class="price">140 грн/0.5л</span>
+                        <div class="quantity-selector">
+                            <button class="qty-btn minus">-</button>
+                            <input type="number" class="qty-input" value="1" min="1">
+                            <button class="qty-btn plus">+</button>
+                        </div>
+                        <button class="add-to-cart-btn">В кошик</button>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
         <div class="footer-container">
-            
             <div class="footer-column footer-brand">
                 <h3>Добрі Ґазди</h3>
                 <p>Традиційна буковинська сироварня. Виготовляємо натуральні сири та молочну продукцію з любов'ю та турботою про вашу родину.</p>
             </div>
-
             <div class="footer-column">
                 <h4>Графік роботи</h4>
                 <ul>
                     <li><span>Понеділок - П'ятниця:</span> 09:00 - 16:00</li>   
                     <li>Приймання замовлень на сайті — цілодобово!</li>
-                      <li>Відправка замовлень у <span>робочі дні<span></li>
+                    <li>Відправка замовлень у <span>робочі дні</span></li>
                 </ul>
             </div>
-
             <div class="footer-column">
                 <h4>Контакти</h4>
                 <ul class="footer-contacts">
                     <li>📞 <a href="tel:+380XXXXXXXXX">+380 XX XXX XX XX</a> (дзвінки)</li>
                     <li>📩 <a href="https://www.instagram.com/dobrigazdi/" target="_blank">@dobrigazdi в Instagram</a></li>
-                   <li>📍 <a href="https://www.google.com/maps/search/?api=1&query=Сироварня+Добрі+Ґазди+Михайлівка" target="_blank" class="footer-map-btn">Прокласти маршрут на карті</a></li>
+                    <li>📍 <a href="https://www.google.com/maps/search/?api=1&query=Сироварня+Добрі+Ґазди+Михайлівка" target="_blank" class="footer-map-btn">Прокласти маршрут на карті</a></li>
                 </ul>
             </div>
-
         </div>
-        
         <div class="footer-bottom">
-            <p>&copy; 2026 Буковинська сироварня "Добрі Ґазди". Всі права захищені.</p>
+            <p>© 2026 Буковинська сироварня "Добрі Ґазди". Всі права захищені.</p>
         </div>
     </footer>
 
@@ -499,19 +693,17 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h2>Оформлення замовлення</h2>
-                <button id="close-modal-btn" class="close-btn">&times;</button>
+                <button id="close-modal-btn" class="close-btn">×</button>
             </div>
             <form id="checkout-form" class="checkout-form">
                 <div class="form-group">
                     <label for="client-name">Ваше ім'я та прізвище *</label>
                     <input type="text" id="client-name" required placeholder="Іван Петренко">
                 </div>
-                
                 <div class="form-group">
                     <label for="client-phone">Номер телефону *</label>
                     <input type="tel" id="client-phone" required placeholder="+380XXXXXXXXX">
                 </div>
-                
                 <div class="form-group">
                     <label for="delivery-method">Спосіб доставки *</label>
                     <select id="delivery-method" required>
@@ -521,17 +713,14 @@
                         <option value="Укрпошта">Укрпошта</option>
                     </select>
                 </div>
-                
                 <div class="form-group">
                     <label for="delivery-address">Адреса доставки / Номер відділення</label>
                     <textarea id="delivery-address" rows="2" placeholder="Місто, номер відділення або домашня адреса"></textarea>
                 </div>
-
                 <div class="form-group">
                     <label for="client-comment">Коментар до замовлення</label>
                     <textarea id="client-comment" rows="2" placeholder="Наприклад: порізати шматочками, упакувати у вакуум..."></textarea>
                 </div>
-
                 <button type="submit" id="submit-order-btn" class="btn submit-order-btn">Підтвердити замовлення</button>
             </form>
         </div>
@@ -548,14 +737,31 @@
                 </div>
             </div>
             <h2>Замовлення прийнято!</h2>
-            <p>Дякуємо за покупку. Найближчим часом мы зв'яжемося з вами для підтвердження замовлення.</p>
+            <p>Дякуємо за покупку. Найближчим часом ми зв'яжемося з вами для підтвердження замовлення.</p>
             <button id="close-success-btn" class="btn success-close-btn">Чудово</button>
         </div>
     </div>
     
     <div id="modal-overlay" class="modal-overlay"></div>
 
-    <script src="script.js"></script>
+    <div id="product-modal" class="product-modal-overlay">
+        <div class="product-modal-content">
+            <button class="product-modal-close">×</button>
+            <div class="product-modal-grid">
+                <div class="product-modal-left">
+                    <img id="modal-product-img" src="" alt="Збільшене фото">
+                </div>
+                <div class="product-modal-right">
+                    <h2 id="modal-product-title">Назва сиру</h2>
+                    <div id="modal-product-desc" class="modal-desc-text">Детальний опис...</div>
+                    <div class="modal-product-price-row">
+                        <span id="modal-product-price" class="price">350 грн/кг</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
+    <script src="script.js"></script>
 </body>
 </html>
