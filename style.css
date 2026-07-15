@@ -6,6 +6,19 @@ html {
 /* Базові налаштування сторінки */
 /* Базові налаштування сторінки та новий красивий фон */
 body {
+    body {
+    /* Інші твої стилі (background, margin тощо) залишаються */
+    
+    font-family: 'Montserrat', sans-serif; /* Активуємо новий шрифт */
+    -webkit-font-smoothing: antialiased;   /* Робимо шрифт більш чітким та гладким */
+}
+
+/* Додатково освіжимо заголовки, щоб вони виглядали солідно */
+h1, h2, h3, h4 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700; /* Робимо заголовки насиченими */
+    color: #4a3b32;   /* Наш фірмовий шоколадний колір */
+}
     margin: 0;
     padding: 0;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -931,4 +944,18 @@ body {
     text-align: center;
     font-size: 13px;
     color: #a49387;
+}/* Повертаємо базовий шрифт для всього сайту */
+body, h1, h2, h3, h4, .price, .add-to-cart-btn {
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* ОНОВЛЕНИЙ КРАФТОВИЙ ШРИФТ ТІЛЬКИ ДЛЯ ОПИСУ ТОВАРУ */
+.product-card .description {
+    font-family: 'Caveat', cursive; /* Рукописний витончений шрифт */
+    font-size: 19px;                /* Трохи збільшуємо, бо рукописні шрифти зазвичай візуально менші */
+    font-weight: 600;
+    line-height: 1.2;
+    color: #706055;                 /* Приємний шоколадно-сірий відтінок */
+    margin-bottom: 15px;
+    letter-spacing: 0.3px;
 }
