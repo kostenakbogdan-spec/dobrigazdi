@@ -799,4 +799,136 @@ body {
 .about-btn:active {
     transform: translateY(1px); /* Кнопка візуально прогинається при кліку */
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}/* ================= ОПТИМІЗОВАНІ АНІМАЦІЇ (БЕЗ КОШИКА) ================= */
+
+/* Плавний підйом карток товарів при наведенні */
+.product-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-6px); /* Легкий підйом вгору */
+    box-shadow: 0 10px 25px rgba(74, 59, 50, 0.12); /* М'яка тінь */
+}
+
+/* Ефект для головних кнопок при наведенні */
+.add-to-cart-btn, .instagram-btn, .cart-btn, .about-btn {
+    transition: background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.add-to-cart-btn:hover {
+    transform: scale(1.02); /* Ледь помітне збільшення */
+}
+
+/* Анімація для кнопок плюс/мінус (ефект натискання) */
+.qty-btn {
+    transition: background-color 0.2s ease, transform 0.1s ease;
+}
+.qty-btn:active {
+    transform: scale(0.85); /* Кнопка приємно стискається при кліку */
+}/* ================= СТИЛІ ДЛЯ ПІДВАЛУ (FOOTER) ================= */
+.site-footer {
+    background-color: #4a3b32; /* Фірмовий темно-коричневий колір */
+    color: #fcf8f5;            /* Світлий колір тексту */
+    padding: 40px 20px 20px 20px;
+    margin-top: 60px;          /* Відступ від каталогу товарів */
+    font-family: inherit;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;    /* На мобільних колонки йдуть одна під одною */
+    gap: 30px;
+}
+
+@media (min-width: 768px) {
+    .footer-container {
+        flex-direction: row;   /* На комп'ютерах стають в один рядок */
+        justify-content: space-between;
+    }
+}
+
+.footer-column {
+    flex: 1;
+}
+
+.footer-column h3 {
+    color: #e2a03f;            /* Золотистий колір для головного заголовка */
+    font-size: 24px;
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+
+.footer-column h4 {
+    color: #e2a03f;
+    font-size: 18px;
+    margin-top: 0;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.footer-column p {
+    font-size: 14px;
+    line-height: 1.6;
+    color: #decbc0;
+}
+
+.footer-column ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-column ul li {
+    font-size: 14px;
+    margin-bottom: 10px;
+    color: #decbc0;
+}
+
+.footer-column ul li span {
+    font-weight: bold;
+    color: #ffffff;
+}
+
+/* Контакти та посилання */
+.footer-contacts a {
+    color: #ffffff;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.footer-contacts a:hover {
+    color: #e2a03f;            /* Підсвічування при наведенні */
+}
+
+/* Кнопка карти */
+.footer-map-btn {
+    display: inline-block;
+    margin-top: 5px;
+    background-color: #e2a03f;
+    color: #ffffff !important;
+    padding: 6px 14px;
+    border-radius: 15px;
+    font-size: 13px;
+    font-weight: bold;
+    transition: background-color 0.2s ease, transform 0.1s ease !important;
+}
+
+.footer-map-btn:hover {
+    background-color: #c9872b;
+    transform: translateY(-1px);
+}
+
+/* Нижня смуга з копірайтом */
+.footer-bottom {
+    max-width: 1200px;
+    margin: 30px auto 0 auto;
+    padding-top: 20px;
+    border-top: 1px solid #5d4b40;
+    text-align: center;
+    font-size: 13px;
+    color: #a49387;
 }
