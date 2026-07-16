@@ -107,17 +107,42 @@ h1, h2, h3, h4 {
     margin: 0 auto;
 }
 
+/* ================= СТИЛІЗАЦІЯ ТЕКСТУ КАТАЛОГУ ================= */
+
+/* Головний заголовок "Каталог продукції" */
 .main-title {
-    color: #3d3028;
-    font-size: 32px;
-    margin-bottom: 10px;
+    font-size: 42px;             /* Робимо трохи більшим та величнішим */
+    font-weight: 800;             /* Максимально насичений, жирний шрифт */
+    color: #1e242f;               /* Дуже глибокий, майже чорний Midnight колір */
+    margin-bottom: 14px;          /* Трохи збільшуємо відступ до підзаголовка */
+    letter-spacing: -0.8px;       /* Елегантне зближення літер, як у сучасних журналах */
+    text-transform: uppercase;     /* Робимо всі літери великими для солідності */
+    font-family: 'Montserrat', sans-serif;
 }
 
+/* Підзаголовок "Оберіть категорію, яка вас цікавить:" */
 .main-subtitle {
-    color: #7d6e65;
-    font-size: 18px;
-    margin-bottom: 40px;
+    font-size: 19px;             /* Збільшуємо розмір, щоб він не губився */
+    font-weight: 600;             /* Напівжирне накреслення для кращої читабельності */
+    color: #4a5568;               /* Більш насичений, темний графітовий колір замість бляклого сірого */
+    letter-spacing: 0.2px;        /* Легкий простір між літерами */
+    margin-bottom: 45px;          /* Гарний відступ від тексту до самих категорій */
+    font-family: 'Montserrat', sans-serif;
+    position: relative;
+    display: inline-block;
 }
+
+/* Додамо красиву маленьку жовту рисочку під текстом, щоб відокремити його від кнопок */
+.main-subtitle::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 4px;
+    background-color: #F8C61E;   /* Наш сонячний акцент */
+    border-radius: 2px;
+    margin: 15px auto 0 auto;    /* Центруємо рисочку */
+}
+
 
 .categories-menu {
     display: flex;

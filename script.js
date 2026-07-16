@@ -168,9 +168,9 @@ document.querySelectorAll('.add-to-cart-btn').forEach(button => {
                 
                 setTimeout(() => {
                     cartButton.classList.remove('basket-animate');
-                }, 600);
+                }, 900);
 
-            }, 900);
+            }, 1200);
         }
         // ------------------------------------
 
@@ -337,6 +337,7 @@ if (closeSuccessBtn) {
 }
 
 // ================= 7. БЕЗПЕЧНА ЛОГІКА ДЕТАЛЬНОГО ПЕРЕГЛЯДУ ТОВАРУ =================
+// ================= 7. БЕЗПЕЧНА ЛОГІКА ДЕТАЛЬНОГО ПЕРЕГЛЯДУ ТОВАРУ =================
 if (productModal && modalCloseBtn) {
     document.querySelectorAll('.product-img-container').forEach(container => {
         container.addEventListener('click', (e) => {
@@ -350,15 +351,25 @@ if (productModal && modalCloseBtn) {
             const detailedDescElement = card.querySelector('.detailed-description');
             const descriptionHTML = detailedDescElement ? detailedDescElement.innerHTML : 'Опис для цього товару скоро з’явиться.';
 
-            // Отримуємо актуальну ціну, яка зараз вираховується на екрані картки (разом із вагою та кількістю)
-            const priceDisplay = card.querySelector('.price-display');
-            const priceNormal = card.querySelector('.price');
-            const currentPriceText = priceDisplay ? priceDisplay.innerText : (priceNormal ? priceNormal.innerText : '');
+            // --- НОВА ЛОГІКА ВІДОБРАЖЕННЯ ЦІНИ У ВІКНІ ---
+            let priceText = '';
+            const price100g = card.getAttribute('data-price-100g');
+            const fixedPrice = card.dataset.price;
+
+            if (price100g) {
+                // Якщо це сир на вагу, пишемо базову ціну за 100 грамів
+                priceText = `${price100g} грн / 100г`;
+            } else if (fixedPrice) {
+                // Якщо це звичайна молочка (молоко, масло тощо)
+                const priceNormal = card.querySelector('.price');
+                priceText = priceNormal ? priceNormal.innerText : `${fixedPrice} грн`;
+            }
+            // ---------------------------------------------
 
             if (modalTitle) modalTitle.innerText = name;
             if (modalImg) modalImg.src = imgSrc;
             if (modalDesc) modalDesc.innerHTML = descriptionHTML;
-            if (modalPrice) modalPrice.innerText = currentPriceText;
+            if (modalPrice) modalPrice.innerText = priceText; // Встановлюємо нову ціну
 
             productModal.classList.add('open');
         });
