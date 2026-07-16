@@ -130,48 +130,64 @@ document.querySelectorAll('.add-to-cart-btn').forEach(button => {
             itemPrice = parseInt(card.dataset.price);
         }
 
-        // --- ЕФЕКТ ПОЛЬОТУ (FLY-TO-CART) ---
+       // --- ЕФЕКТ ПОЛЬОТУ З ПЕРЕТВОРЕННЯМ НА ЛОГОТИП СИРУ ---
         const imgToFly = card.querySelector('.product-img');
         const cartButton = document.getElementById('cart-toggle-btn');
 
         if (imgToFly && cartButton) {
-            // Створюємо летючий клон зображення
-            const imgClone = imgToFly.cloneNode();
-            imgClone.classList.add('flying-product-img');
-            document.body.appendChild(imgClone);
-
-            // Отримуємо координати початкового зображення та кнопки кошика
             const imgRect = imgToFly.getBoundingClientRect();
             const cartRect = cartButton.getBoundingClientRect();
 
-            // Встановлюємо початкове положення та розміри клона
-            imgClone.style.top = `${imgRect.top}px`;
-            imgClone.style.left = `${imgRect.left}px`;
-            imgClone.style.width = `${imgRect.width}px`;
-            imgClone.style.height = `${imgRect.height}px`;
+            // 1. Створюємо загальний контейнер для польоту
+            const flyingWrapper = document.createElement('div');
+            flyingWrapper.classList.add('flying-wrapper');
+            
+            // Встановлюємо початкові координати (точно як у фото картки)
+            flyingWrapper.style.top = `${imgRect.top}px`;
+            flyingWrapper.style.left = `${imgRect.left}px`;
+            flyingWrapper.style.width = `${imgRect.width}px`;
+            flyingWrapper.style.height = `${imgRect.height}px`;
 
-            // Запускаємо плавний рух до кошика
-            requestAnimationFrame(() => {
-                imgClone.style.top = `${cartRect.top + 10}px`;
-                imgClone.style.left = `${cartRect.left + 15}px`;
-                imgClone.style.width = '20px';
-                imgClone.style.height = '20px';
-                imgClone.style.opacity = '0.3';
-            });
+            // 2. Створюємо внутрішню частину з картинкою
+            const imgPart = imgToFly.cloneNode();
+            imgPart.classList.add('flying-img-part');
 
-            // Коли політ завершується (через 800мс)
+            // 3. Створюємо іконку сиру (логотип)
+            const cheesePart = document.createElement('div');
+            cheesePart.classList.add('flying-cheese-icon');
+            cheesePart.innerHTML = '🧀'; // Твій мінімалістичний сир
+
+            // Збираємо все докупи
+            flyingWrapper.appendChild(imgPart);
+            flyingWrapper.appendChild(cheesePart);
+            document.body.appendChild(flyingWrapper);
+
+            // 4. Запускаємо перший етап: миттєве зменшення фото на 50%
             setTimeout(() => {
-                imgClone.remove(); // Видаляємо клон з DOM-дерева
+                flyingWrapper.classList.add('in-flight');
+                
+                // 5. Одночасно спрямовуємо весь контейнер до кошика
+                flyingWrapper.style.top = `${cartRect.top + 5}px`;
+                flyingWrapper.style.left = `${cartRect.left + 15}px`;
+                // Зменшуємо фінальний контейнер під розмір іконки в кошику
+                flyingWrapper.style.width = '30px';
+                flyingWrapper.style.height = '30px';
+            }, 50);
 
-                // Запускаємо погойдування кошика
+            // 6. Фінал польоту (приземлення в кошик через 900мс)
+            setTimeout(() => {
+                flyingWrapper.remove(); // Видаляємо елементи з екрану
+
+                // Ефектне «впускання» в кошик із пружинистим погойдуванням
                 cartButton.classList.add('basket-animate');
                 
                 setTimeout(() => {
                     cartButton.classList.remove('basket-animate');
-                }, 900);
+                }, 650);
 
-            }, 1200);
+            }, 950);
         }
+        // -----------------------------------------------------
         // ------------------------------------
 
         addToCart(cartItemId, name, itemPrice, quantity);
