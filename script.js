@@ -25,7 +25,7 @@ const checkoutBtn = document.getElementById('checkout-btn');
 const closeModalBtn = document.getElementById('close-modal-btn');
 const checkoutForm = document.getElementById('checkout-form');
 
-// Елементи детального перегляду товару
+// Елементи детального перегляду товару (модалка)
 const productModal = document.getElementById('product-modal');
 const modalImg = document.getElementById('modal-product-img');
 const modalTitle = document.getElementById('modal-product-title');
@@ -33,11 +33,64 @@ const modalDesc = document.getElementById('modal-product-desc');
 const modalPrice = document.getElementById('modal-product-price');
 const modalCloseBtn = document.querySelector('.product-modal-close');
 
-// 1. ВІДКРИТТЯ ТА ЗАКРИТТЯ КОШИКА
+// ================= ФУНКЦІЯ ДИНАМІЧНОГО ПЕРЕРАХУНКУ ЦІНИ В КАРТЦІ =================
+function recalculateCardPrice(card) {
+    const priceDisplay = card.querySelector('.price-display');
+    if (!priceDisplay) return;
+
+    const price100g = parseInt(card.getAttribute('data-price-100g'));
+    const qtyInput = card.querySelector('.qty-input');
+    const quantity = qtyInput ? parseInt(qtyInput.value) : 1;
+
+    // Шукаємо активну кнопку ваги в цій картці
+    const activeWeightBtn = card.querySelector('.weight-btn.active');
+    
+    if (price100g && activeWeightBtn) {
+        const weight = parseInt(activeWeightBtn.dataset.weight);
+        const totalPrice = price100g * (weight / 100) * quantity;
+        priceDisplay.innerText = `${totalPrice} грн`;
+    }
+}
+
+// Ініціалізація інтерактивних елементів у картках (вага та кількість +/-)
+document.querySelectorAll('.product-card').forEach(card => {
+    // 1. Обробка вибору ваги
+    const weightButtons = card.querySelectorAll('.weight-btn');
+    weightButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+            weightButtons.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            recalculateCardPrice(card);
+        });
+    });
+
+    // 2. Кнопки зміни кількості +/-
+    const minusBtn = card.querySelector('.qty-btn.minus');
+    const plusBtn = card.querySelector('.qty-btn.plus');
+    const qtyInput = card.querySelector('.qty-input');
+
+    if (minusBtn && plusBtn && qtyInput) {
+        minusBtn.addEventListener('click', () => {
+            let val = parseInt(qtyInput.value);
+            if (val > 1) {
+                qtyInput.value = val - 1;
+                recalculateCardPrice(card);
+            }
+        });
+
+        plusBtn.addEventListener('click', () => {
+            let val = parseInt(qtyInput.value);
+            qtyInput.value = val + 1;
+            recalculateCardPrice(card);
+        });
+    }
+});
+
+// ================= 1. ВІДКРИТТЯ ТА ЗАКРИТТЯ КОШИКА =================
 if (cartToggleBtn) {
     cartToggleBtn.addEventListener('click', () => {
-        cartSidebar.classList.add('open');
-        cartOverlay.classList.add('open');
+        if (cartSidebar) cartSidebar.classList.add('open');
+        if (cartOverlay) cartOverlay.classList.add('open');
     });
 }
 
@@ -49,41 +102,85 @@ const closeCart = () => {
 if (cartCloseBtn) cartCloseBtn.addEventListener('click', closeCart);
 if (cartOverlay) cartOverlay.addEventListener('click', closeCart);
 
-// 2. ЛОГІКА КНОПОК КІЛЬКОСТІ В КАРТКАХ ТОВАРІВ
-document.querySelectorAll('.quantity-selector').forEach(selector => {
-    const minusBtn = selector.querySelector('.minus');
-    const plusBtn = selector.querySelector('.plus');
-    const qtyInput = selector.querySelector('.qty-input');
-
-    if (minusBtn && plusBtn && qtyInput) {
-        minusBtn.addEventListener('click', () => {
-            let val = parseInt(qtyInput.value);
-            if (val > 1) qtyInput.value = val - 1;
-        });
-
-        plusBtn.addEventListener('click', () => {
-            let val = parseInt(qtyInput.value);
-            qtyInput.value = val + 1;
-        });
-    }
-});
-
-// 3. ДОДАВАННЯ В КОШИК
+// ================= 2. ДОДАВАННЯ В КОШИК + АНІМАЦІЯ ПОЛЬОТУ =================
 document.querySelectorAll('.add-to-cart-btn').forEach(button => {
     button.addEventListener('click', (e) => {
         const card = e.target.closest('.product-card');
         if (!card) return;
         
         const id = card.dataset.id;
-        const name = card.dataset.name;
-        const price = parseInt(card.dataset.price);
+        let name = card.dataset.name;
         const qtyInput = card.querySelector('.qty-input');
         const quantity = qtyInput ? parseInt(qtyInput.value) : 1;
+        let itemPrice = 0;
+        let cartItemId = id;
 
-        addToCart(id, name, price, quantity);
+        // Перевіряємо, чи цей товар має вибір ваги (за наявністю атрибуту data-price-100g)
+        const price100gAttr = card.getAttribute('data-price-100g');
+        const activeWeightBtn = card.querySelector('.weight-btn.active');
+
+        if (price100gAttr && activeWeightBtn) {
+            const price100g = parseInt(price100gAttr);
+            const weight = parseInt(activeWeightBtn.dataset.weight);
+            itemPrice = price100g * (weight / 100);
+            name = `${name} (${weight}г)`; // Додаємо вагу до назви у кошику
+            cartItemId = `${id}_${weight}`; // Створюємо унікальний ID для кожної ваги
+        } else {
+            // Для звичайної молочки, де ціна фіксована за штуку/літр/банку
+            itemPrice = parseInt(card.dataset.price);
+        }
+
+        // --- ЕФЕКТ ПОЛЬОТУ (FLY-TO-CART) ---
+        const imgToFly = card.querySelector('.product-img');
+        const cartButton = document.getElementById('cart-toggle-btn');
+
+        if (imgToFly && cartButton) {
+            // Створюємо летючий клон зображення
+            const imgClone = imgToFly.cloneNode();
+            imgClone.classList.add('flying-product-img');
+            document.body.appendChild(imgClone);
+
+            // Отримуємо координати початкового зображення та кнопки кошика
+            const imgRect = imgToFly.getBoundingClientRect();
+            const cartRect = cartButton.getBoundingClientRect();
+
+            // Встановлюємо початкове положення та розміри клона
+            imgClone.style.top = `${imgRect.top}px`;
+            imgClone.style.left = `${imgRect.left}px`;
+            imgClone.style.width = `${imgRect.width}px`;
+            imgClone.style.height = `${imgRect.height}px`;
+
+            // Запускаємо плавний рух до кошика
+            requestAnimationFrame(() => {
+                imgClone.style.top = `${cartRect.top + 10}px`;
+                imgClone.style.left = `${cartRect.left + 15}px`;
+                imgClone.style.width = '20px';
+                imgClone.style.height = '20px';
+                imgClone.style.opacity = '0.3';
+            });
+
+            // Коли політ завершується (через 800мс)
+            setTimeout(() => {
+                imgClone.remove(); // Видаляємо клон з DOM-дерева
+
+                // Запускаємо погойдування кошика
+                cartButton.classList.add('basket-animate');
+                
+                setTimeout(() => {
+                    cartButton.classList.remove('basket-animate');
+                }, 600);
+
+            }, 900);
+        }
+        // ------------------------------------
+
+        addToCart(cartItemId, name, itemPrice, quantity);
         
-        // Скидаємо лічильник у картці назад на 1
-        if (qtyInput) qtyInput.value = 1;
+        // Скидаємо лічильник в картці назад на 1
+        if (qtyInput) {
+            qtyInput.value = 1;
+            recalculateCardPrice(card);
+        }
     });
 });
 
@@ -99,7 +196,7 @@ function addToCart(id, name, price, quantity) {
     updateCartUI();
 }
 
-// 4. ОНОВЛЕННЯ КОШИКА НА ЕКРАНІ
+// ================= 3. ОНОВЛЕННЯ КОШИКА НА ЕКРАНІ =================
 function updateCartUI() {
     if (!cartItemsContainer) return;
     
@@ -136,20 +233,19 @@ function updateCartUI() {
     if (cartCount) cartCount.innerText = totalItems;
 }
 
-// 5. ВИДАЛЕННЯ З КОШИКА
+// ================= 4. ВИДАЛЕННЯ З КОШИКА =================
 window.removeFromCart = function(id) {
     cart = cart.filter(item => item.id !== id);
     updateCartUI();
 };
 
-// 6. ВІДКРИТТЯ / ЗАКРИТТЯ МОДАЛЬНОГО ВІКНА ЗАМОВЛЕННЯ
+// ================= 5. МОДАЛЬНЕ ВІКНО ЗАМОВЛЕННЯ =================
 if (checkoutBtn) {
     checkoutBtn.addEventListener('click', () => {
         if (cart.length === 0) {
             alert('Додайте товари до кошика перед оформленням!');
             return;
         }
-        // Закриваємо бічну панель кошика і відкриваємо форму
         closeCart();
         if (orderModal) orderModal.classList.add('open');
         if (modalOverlay) modalOverlay.classList.add('open');
@@ -164,19 +260,17 @@ const closeOrderModal = () => {
 if (closeModalBtn) closeModalBtn.addEventListener('click', closeOrderModal);
 if (modalOverlay) modalOverlay.addEventListener('click', closeOrderModal);
 
-// 7. НАДІСЛАННЯ ЗАМОВЛЕННЯ В TELEGRAM
+// ================= 6. НАДІСЛАННЯ ЗАМОВЛЕННЯ В TELEGRAM =================
 if (checkoutForm) {
     checkoutForm.addEventListener('submit', (e) => {
-        e.preventDefault(); // Запобігаємо перезавантаженню сторінки
+        e.preventDefault();
 
-        // Збираємо дані клієнта
         const name = document.getElementById('client-name').value;
         const phone = document.getElementById('client-phone').value;
         const delivery = document.getElementById('delivery-method').value;
         const address = document.getElementById('delivery-address').value || 'Не вказано';
         const comment = document.getElementById('client-comment').value || 'Немає коментаря';
 
-        // Формуємо список товарів для повідомлення
         let itemsText = '';
         let totalSum = 0;
 
@@ -186,7 +280,6 @@ if (checkoutForm) {
             itemsText += `${index + 1}. 🧀 *${item.name}* — ${item.quantity} шт. x ${item.price} грн = ${itemTotal} грн\n`;
         });
 
-        // Формуємо красивий текст для Telegram
         const message = `
 📦 *НОВЕ ЗАМОВЛЕННЯ НА САЙТІ!*
 
@@ -202,10 +295,8 @@ ${itemsText}
 💬 *Коментар:* _${comment}_
         `;
 
-        // API URL для надсилання повідомлення бота
         const url = `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`;
 
-        // Надсилаємо POST-запит у Telegram
         fetch(url, {
             method: 'POST',
             headers: {
@@ -219,14 +310,11 @@ ${itemsText}
         })
         .then(response => {
             if (response.ok) {
-                // Закриваємо форму оформлення замовлення
                 closeOrderModal();
                 
-                // Відкриваємо вікно успіху
                 if (successModal) successModal.classList.add('open');
                 if (modalOverlay) modalOverlay.classList.add('open');
 
-                // Очищуємо кошик та форму
                 cart = [];
                 updateCartUI();
                 checkoutForm.reset();
@@ -241,7 +329,6 @@ ${itemsText}
     });
 }
 
-// Клікнувши по кнопці "Чудово" у вікні успіху — закриваємо його повністю
 if (closeSuccessBtn) {
     closeSuccessBtn.addEventListener('click', () => {
         if (successModal) successModal.classList.remove('open');
@@ -249,42 +336,38 @@ if (closeSuccessBtn) {
     });
 }
 
-// ================= БЕЗПЕЧНА ЛОГІКА ДЕТАЛЬНОГО ПЕРЕГЛЯДУ ТОВАРУ =================
+// ================= 7. БЕЗПЕЧНА ЛОГІКА ДЕТАЛЬНОГО ПЕРЕГЛЯДУ ТОВАРУ =================
 if (productModal && modalCloseBtn) {
-    
-    // Вішаємо подію кліку на зображення кожної картки товару
     document.querySelectorAll('.product-img-container').forEach(container => {
         container.addEventListener('click', (e) => {
             const card = e.target.closest('.product-card');
-            if (!card) return; // Захист на випадок, якщо картку не знайдено
+            if (!card) return;
             
-            // Зчитуємо дані з картки
             const name = card.dataset.name || 'Товар';
-            const price = card.dataset.price || '0';
             const imgEl = card.querySelector('.product-img');
             const imgSrc = imgEl ? imgEl.src : '';
             
-            // Знаходимо прихований детальний опис у цій картці
             const detailedDescElement = card.querySelector('.detailed-description');
             const descriptionHTML = detailedDescElement ? detailedDescElement.innerHTML : 'Опис для цього товару скоро з’явиться.';
 
-            // Безпечно підставляємо дані у модальне вікно
+            // Отримуємо актуальну ціну, яка зараз вираховується на екрані картки (разом із вагою та кількістю)
+            const priceDisplay = card.querySelector('.price-display');
+            const priceNormal = card.querySelector('.price');
+            const currentPriceText = priceDisplay ? priceDisplay.innerText : (priceNormal ? priceNormal.innerText : '');
+
             if (modalTitle) modalTitle.innerText = name;
             if (modalImg) modalImg.src = imgSrc;
             if (modalDesc) modalDesc.innerHTML = descriptionHTML;
-            if (modalPrice) modalPrice.innerText = `${price} грн/кг`;
+            if (modalPrice) modalPrice.innerText = currentPriceText;
 
-            // Відкриваємо вікно
             productModal.classList.add('open');
         });
     });
 
-    // Закриття модального вікна при кліку на хрестик
     modalCloseBtn.addEventListener('click', () => {
         productModal.classList.remove('open');
     });
 
-    // Закриття при кліку на затемнене тло навколо вікна
     productModal.addEventListener('click', (e) => {
         if (e.target === productModal) {
             productModal.classList.remove('open');

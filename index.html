@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="uk">
 <head>
+    <link rel="icon" href="Gemini_Generated_Image_kk2uhakk2uhakk2u.png" type="image/png">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Буковинська сироварня "Добрі Ґазди"</title>
@@ -52,11 +53,11 @@
         </div>
     </div>
     <div id="cart-overlay" class="cart-overlay"></div>
-
-    <section class="main-categories-section">
+<section class="main-categories-section">
         <h1 class="main-title">Каталог продукції</h1>
         <p class="main-subtitle">Оберіть категорію, яка вас цікавить:</p>
         
+        <!-- ПОВЕРТАЄМО НАШІ КНОПКИ КАТЕГОРІЙ -->
         <nav class="categories-menu">
             <a href="#cow-cheese" class="category-card card-cow">
                 <span class="card-text">Тверді сири з коров'ячого молока</span>
@@ -68,15 +69,16 @@
                 <span class="card-text">Кисломолочні та молочні продукти</span>
             </a>
         </nav>
-    </section>
+    </section> <!-- ЗАКРИВАЄМО блок main-categories-section -->
 
+    <!-- ТЕПЕР ПРАВИЛЬНО ПОЧИНАЄТЬСЯ КАТАЛОГ -->
     <main class="catalog-container">
         
         <section id="cow-cheese" class="category-section">
             <h2 class="category-title">Тверді сири з коров'ячого молока</h2>
             <div class="products-grid">
 
-                <div class="product-card" data-id="hirskyi" data-name="Гірський сир" data-price="350">
+                <div class="product-card" data-id="hirskyi" data-name="Гірський сир" data-price-100g="35">
                     <div class="product-img-container" style="cursor: pointer;">
                         <img src="гірський.jpg" alt="Гірський сир" class="product-img">
                     </div>
@@ -88,18 +90,31 @@
                         <b>Текстура:</b> Щільна, ламка, з поодинокими вічками.<br>
                         <b>З чим смакує:</b> Чудово поєднується з легкими білими або насиченими червоними винами, виноградом, волоськими горіхами та рідким карпатським медом.
                     </div>
-                    <div class="card-footer-flex">
-                        <span class="price">350 грн/кг</span>
-                        <div class="quantity-selector">
-                            <button class="qty-btn minus">-</button>
-                            <input type="number" class="qty-input" value="1" min="1">
-                            <button class="qty-btn plus">+</button>
+                    
+                    <div class="card-status-row">
+                        <span class="price-display">70 грн</span>
+                        <span class="stock-status">В наявності</span>
+                    </div>
+
+                    <div class="interactive-controls">
+                        <div class="weight-label">Вага</div>
+                        <div class="weight-selector">
+                            <button class="weight-btn active" data-weight="200">200</button>
+                            <button class="weight-btn" data-weight="500">500</button>
+                            <button class="weight-btn" data-weight="1000">1000</button>
                         </div>
-                        <button class="add-to-cart-btn">В кошик</button>
+                        <div class="card-footer-flex">
+                            <div class="quantity-selector">
+                                <button class="qty-btn minus">-</button>
+                                <input type="number" class="qty-input" value="1" min="1">
+                                <button class="qty-btn plus">+</button>
+                            </div>
+                            <button class="add-to-cart-btn">В кошик</button>
+                        </div>
                     </div>
                 </div>
 
-                <div class="product-card" data-id="glybocky" data-name="Сир 'Глибоцько-Буковинський'" data-price="550">
+                <div class="product-card" data-id="glybocky" data-name="Сир 'Глибоцько-Буковинський'" data-price-100g="55">
                     <div class="product-img-container" style="cursor: pointer;">
                         <img src="глиб бук.jpg" alt="Сир Глибоцький" class="product-img">
                     </div>
@@ -111,18 +126,29 @@
                         <b>Текстура:</b> Еластична, однорідна, легко нарізається слайсами.<br>
                         <b>З чим смакує:</b> Ідеальний для ранкових бутербродів, сирного плато, дитячих перекусів та запікання.
                     </div>
-                    <div class="card-footer-flex">
-                        <span class="price">550 грн/кг</span>
-                        <div class="quantity-selector">
-                            <button class="qty-btn minus">-</button>
-                            <input type="number" class="qty-input" value="1" min="1">
-                            <button class="qty-btn plus">+</button>
+                    <div class="card-status-row">
+                        <span class="price-display">110 грн</span>
+                        <span class="stock-status">В наявності</span>
+                    </div>
+                    <div class="interactive-controls">
+                        <div class="weight-label">Вага</div>
+                        <div class="weight-selector">
+                            <button class="weight-btn active" data-weight="200">200</button>
+                            <button class="weight-btn" data-weight="500">500</button>
+                            <button class="weight-btn" data-weight="1000">1000</button>
                         </div>
-                        <button class="add-to-cart-btn">В кошик</button>
+                        <div class="card-footer-flex">
+                            <div class="quantity-selector">
+                                <button class="qty-btn minus">-</button>
+                                <input type="number" class="qty-input" value="1" min="1">
+                                <button class="qty-btn plus">+</button>
+                            </div>
+                            <button class="add-to-cart-btn">В кошик</button>
+                        </div>
                     </div>
                 </div>
 
-                <div class="product-card" data-id="ukrainsky" data-name="Сир 'Український'" data-price="550">
+                <div class="product-card" data-id="ukrainsky" data-name="Сир 'Український'" data-price-100g="55">
                     <div class="product-img-container" style="cursor: pointer;">
                         <img src="український.jpg" alt="Сир Український" class="product-img">
                     </div>
@@ -130,22 +156,33 @@
                     <p class="description">Класичний твердий сир</p>
                     <div class="detailed-description" style="display: none;">
                         Традиційний напівтвердий сир, виготовлений з пастеризованого фермерського молока. Має класичний кисломолочний сирний смак.<br><br>
-                        <b>Смаковий профіль:</b> Помірно виражений сирний, з приємною кислинкою.<br>
-                        <b>Текстура:</b> Ніжна, пластична, з дрібними круглими або кутастими вічками.<br>
+                        <b>Смаковий профіль:</b> Помірний, з приємною кислинкою.<br>
+                        <b>Текстура:</b> Ніжня, пластична, з дрібними вічками.<br>
                         <b>З чим смакує:</b> Універсальний вибір для гарячих канапок, піци, макаронів та повсякденного столу.
                     </div>
-                    <div class="card-footer-flex">
-                        <span class="price">550 грн/кг</span>
-                        <div class="quantity-selector">
-                            <button class="qty-btn minus">-</button>
-                            <input type="number" class="qty-input" value="1" min="1">
-                            <button class="qty-btn plus">+</button>
+                    <div class="card-status-row">
+                        <span class="price-display">110 грн</span>
+                        <span class="stock-status">В наявності</span>
+                    </div>
+                    <div class="interactive-controls">
+                        <div class="weight-label">Вага</div>
+                        <div class="weight-selector">
+                            <button class="weight-btn active" data-weight="200">200</button>
+                            <button class="weight-btn" data-weight="500">500</button>
+                            <button class="weight-btn" data-weight="1000">1000</button>
                         </div>
-                        <button class="add-to-cart-btn">В кошик</button>
+                        <div class="card-footer-flex">
+                            <div class="quantity-selector">
+                                <button class="qty-btn minus">-</button>
+                                <input type="number" class="qty-input" value="1" min="1">
+                                <button class="qty-btn plus">+</button>
+                            </div>
+                            <button class="add-to-cart-btn">В кошик</button>
+                        </div>
                     </div>
                 </div>
 
-                <div class="product-card" data-id="nizhny" data-name="Сир 'Ніжний'" data-price="550">
+                <div class="product-card" data-id="nizhny" data-name="Сир 'Ніжний'" data-price-100g="55">
                     <div class="product-img-container" style="cursor: pointer;">
                         <img src="ніжний.png" alt="Сир Ніжний" class="product-img">
                     </div>
@@ -157,18 +194,29 @@
                         <b>Текстура:</b> Дуже ніжна, м'яко плавиться в роті.<br>
                         <b>З чим смакує:</b> Чудово поєднується зі свіжими фруктами (груша, яблуко), легким медом та білим хлібом.
                     </div>
-                    <div class="card-footer-flex">
-                        <span class="price">550 грн/кг</span>
-                        <div class="quantity-selector">
-                            <button class="qty-btn minus">-</button>
-                            <input type="number" class="qty-input" value="1" min="1">
-                            <button class="qty-btn plus">+</button>
+                    <div class="card-status-row">
+                        <span class="price-display">110 грн</span>
+                        <span class="stock-status">В наявності</span>
+                    </div>
+                    <div class="interactive-controls">
+                        <div class="weight-label">Вага</div>
+                        <div class="weight-selector">
+                            <button class="weight-btn active" data-weight="200">200</button>
+                            <button class="weight-btn" data-weight="500">500</button>
+                            <button class="weight-btn" data-weight="1000">1000</button>
                         </div>
-                        <button class="add-to-cart-btn">В кошик</button>
+                        <div class="card-footer-flex">
+                            <div class="quantity-selector">
+                                <button class="qty-btn minus">-</button>
+                                <input type="number" class="qty-input" value="1" min="1">
+                                <button class="qty-btn plus">+</button>
+                            </div>
+                            <button class="add-to-cart-btn">В кошик</button>
+                        </div>
                     </div>
                 </div>
 
-                <div class="product-card" data-id="parmezan" data-name="Сир 'Пармезан'" data-price="550">
+                <div class="product-card" data-id="parmezan" data-name="Сир 'Пармезан'" data-price-100g="55">
                     <div class="product-img-container" style="cursor: pointer;">
                         <img src="пармезан.jpg" alt="Сир 'Пармезан'" class="product-img">
                     </div>
@@ -176,22 +224,33 @@
                     <p class="description">Витриманий крафтовий сир</p>
                     <div class="detailed-description" style="display: none;">
                         Наш погляд на італійську класику. Сир довгої витримки, який має щільну структуру та виразний, глибокий смак.<br><br>
-                        <b>Смаковий профіль:</b> Глибокий, солонувато-пікантний, з виразними кристаликами кальцію.<br>
+                        <b>Смаковий профіль:</b> Глибокий, солонувато-пікантний, з вираженими кристаликами кальцію.<br>
                         <b>Текстура:</b> Дуже тверда, ламка, кришиться при нарізанні.<br>
-                        <b>З чим смакує:</b> Незамінний для пасти, салатів (Цезар), ризотто та як вишукана самостійна закуска до шляхетних сухих вин.
+                        <b>З чим смакує:</b> Незамінний для пасти, салатів, ризотто та як вишукана самостійна закуска до шляхетних сухих вин.
                     </div>
-                    <div class="card-footer-flex">
-                        <span class="price">550 грн/кг</span>
-                        <div class="quantity-selector">
-                            <button class="qty-btn minus">-</button>
-                            <input type="number" class="qty-input" value="1" min="1">
-                            <button class="qty-btn plus">+</button>
+                    <div class="card-status-row">
+                        <span class="price-display">110 грн</span>
+                        <span class="stock-status">В наявності</span>
+                    </div>
+                    <div class="interactive-controls">
+                        <div class="weight-label">Вага</div>
+                        <div class="weight-selector">
+                            <button class="weight-btn active" data-weight="200">200</button>
+                            <button class="weight-btn" data-weight="500">500</button>
+                            <button class="weight-btn" data-weight="1000">1000</button>
                         </div>
-                        <button class="add-to-cart-btn">В кошик</button>
+                        <div class="card-footer-flex">
+                            <div class="quantity-selector">
+                                <button class="qty-btn minus">-</button>
+                                <input type="number" class="qty-input" value="1" min="1">
+                                <button class="qty-btn plus">+</button>
+                            </div>
+                            <button class="add-to-cart-btn">В кошик</button>
+                        </div>
                     </div>
                 </div>
 
-                <div class="product-card" data-id="zagadkovy" data-name="Сир 'Загадковий'" data-price="550">
+                <div class="product-card" data-id="zagadkovy" data-name="Сир 'Загадковий'" data-price-100g="55">
                     <div class="product-img-container" style="cursor: pointer;">
                         <img src="загадковий.jpg" alt="Сир 'Загадковий'" class="product-img">
                     </div>
@@ -203,18 +262,29 @@
                         <b>Текстура:</b> Щільна, оксамитова.<br>
                         <b>З чим смакує:</b> Рекомендуємо дегустувати окремо від інших продуктів, щоб повністю оцінити багатий букет смаку.
                     </div>
-                    <div class="card-footer-flex">
-                        <span class="price">550 грн/кг</span>
-                        <div class="quantity-selector">
-                            <button class="qty-btn minus">-</button>
-                            <input type="number" class="qty-input" value="1" min="1">
-                            <button class="qty-btn plus">+</button>
+                    <div class="card-status-row">
+                        <span class="price-display">110 грн</span>
+                        <span class="stock-status">В наявності</span>
+                    </div>
+                    <div class="interactive-controls">
+                        <div class="weight-label">Вага</div>
+                        <div class="weight-selector">
+                            <button class="weight-btn active" data-weight="200">200</button>
+                            <button class="weight-btn" data-weight="500">500</button>
+                            <button class="weight-btn" data-weight="1000">1000</button>
                         </div>
-                        <button class="add-to-cart-btn">В кошик</button>
+                        <div class="card-footer-flex">
+                            <div class="quantity-selector">
+                                <button class="qty-btn minus">-</button>
+                                <input type="number" class="qty-input" value="1" min="1">
+                                <button class="qty-btn plus">+</button>
+                            </div>
+                            <button class="add-to-cart-btn">В кошик</button>
+                        </div>
                     </div>
                 </div>
 
-                <div class="product-card" data-id="chervonodibrovsky" data-name="Сир 'Червонодібровський'" data-price="550">
+                <div class="product-card" data-id="chervonodibrovsky" data-name="Сир 'Червонодібровський'" data-price-100g="55">
                     <div class="product-img-container" style="cursor: pointer;">
                         <img src="червонодібровський.png" alt="Сир 'Червонodibrovsky'" class="product-img">
                     </div>
@@ -226,18 +296,29 @@
                         <b>Текстура:</b> М'яка, пластична, з вкрапленнями насіння прянощів.<br>
                         <b>З чим смакує:</b> Чудово підійде до свіжих овочів, нарізки на святковий стіл або для створення вишуканих гарячих тостів.
                     </div>
-                    <div class="card-footer-flex">
-                        <span class="price">550 грн/кг</span>
-                        <div class="quantity-selector">
-                            <button class="qty-btn minus">-</button>
-                            <input type="number" class="qty-input" value="1" min="1">
-                            <button class="qty-btn plus">+</button>
+                    <div class="card-status-row">
+                        <span class="price-display">110 грн</span>
+                        <span class="stock-status">В наявності</span>
+                    </div>
+                    <div class="interactive-controls">
+                        <div class="weight-label">Вага</div>
+                        <div class="weight-selector">
+                            <button class="weight-btn active" data-weight="200">200</button>
+                            <button class="weight-btn" data-weight="500">500</button>
+                            <button class="weight-btn" data-weight="1000">1000</button>
                         </div>
-                        <button class="add-to-cart-btn">В кошик</button>
+                        <div class="card-footer-flex">
+                            <div class="quantity-selector">
+                                <button class="qty-btn minus">-</button>
+                                <input type="number" class="qty-input" value="1" min="1">
+                                <button class="qty-btn plus">+</button>
+                            </div>
+                            <button class="add-to-cart-btn">В кошик</button>
+                        </div>
                     </div>
                 </div>
 
-                <div class="product-card" data-id="mykhailivsky" data-name="Сир 'Михайлівський'" data-price="550">
+                <div class="product-card" data-id="mykhailivsky" data-name="Сир 'Михайлівський'" data-price-100g="55">
                     <div class="product-img-container" style="cursor: pointer;">
                         <img src="михайлівський.png" alt="Сир 'Михайлівський'" class="product-img">
                     </div>
@@ -249,14 +330,25 @@
                         <b>Текстура:</b> Пружна, однорідна, пластична.<br>
                         <b>З чим смакує:</b> Чудово пасує до ранкової кави, свіжої випічки та легких фруктових салатів.
                     </div>
-                    <div class="card-footer-flex">
-                        <span class="price">550 грн/кг</span>
-                        <div class="quantity-selector">
-                            <button class="qty-btn minus">-</button>
-                            <input type="number" class="qty-input" value="1" min="1">
-                            <button class="qty-btn plus">+</button>
+                    <div class="card-status-row">
+                        <span class="price-display">110 грн</span>
+                        <span class="stock-status">В наявності</span>
+                    </div>
+                    <div class="interactive-controls">
+                        <div class="weight-label">Вага</div>
+                        <div class="weight-selector">
+                            <button class="weight-btn active" data-weight="200">200</button>
+                            <button class="weight-btn" data-weight="500">500</button>
+                            <button class="weight-btn" data-weight="1000">1000</button>
                         </div>
-                        <button class="add-to-cart-btn">В кошик</button>
+                        <div class="card-footer-flex">
+                            <div class="quantity-selector">
+                                <button class="qty-btn minus">-</button>
+                                <input type="number" class="qty-input" value="1" min="1">
+                                <button class="qty-btn plus">+</button>
+                            </div>
+                            <button class="add-to-cart-btn">В кошик</button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -266,7 +358,7 @@
             <h2 class="category-title">Тверді сири з козячого молока</h2>
             <div class="products-grid">
 
-                <div class="product-card" data-id="goat_wine" data-name="Сир Козячий у вині" data-price="750">
+                <div class="product-card" data-id="goat_wine" data-name="Сир Козячий у вині" data-price-100g="75">
                     <div class="product-img-container" style="cursor: pointer;">
                         <img src="козячий у вині.jpg" alt="Сир Козячий у вині" class="product-img">
                     </div>
@@ -278,18 +370,29 @@
                         <b>Текстура:</b> Щільна, злегка крихка.<br>
                         <b>З чим смакує:</b> Справжня прикраса сирної тарілки! Подавайте з інжиром, грушею та келихом сухого червоного вина.
                     </div>
-                    <div class="card-footer-flex">
-                        <span class="price">750 грн/кг</span>
-                        <div class="quantity-selector">
-                            <button class="qty-btn minus">-</button>
-                            <input type="number" class="qty-input" value="1" min="1">
-                            <button class="qty-btn plus">+</button>
+                    <div class="card-status-row">
+                        <span class="price-display">150 грн</span>
+                        <span class="stock-status">В наявності</span>
+                    </div>
+                    <div class="interactive-controls">
+                        <div class="weight-label">Вага</div>
+                        <div class="weight-selector">
+                            <button class="weight-btn active" data-weight="200">200</button>
+                            <button class="weight-btn" data-weight="500">500</button>
+                            <button class="weight-btn" data-weight="1000">1000</button>
                         </div>
-                        <button class="add-to-cart-btn">В кошик</button>
+                        <div class="card-footer-flex">
+                            <div class="quantity-selector">
+                                <button class="qty-btn minus">-</button>
+                                <input type="number" class="qty-input" value="1" min="1">
+                                <button class="qty-btn plus">+</button>
+                            </div>
+                            <button class="add-to-cart-btn">В кошик</button>
+                        </div>
                     </div>
                 </div>
 
-                <div class="product-card" data-id="goat_aged" data-name="Сир Козячий витриманий" data-price="700">
+                <div class="product-card" data-id="goat_aged" data-name="Сир Козячий витриманий" data-price-100g="70">
                     <div class="product-img-container" style="cursor: pointer;">
                         <img src="козячий сир.JPG" alt="Сир Козячий витриманий" class="product-img">
                     </div>
@@ -301,18 +404,29 @@
                         <b>Текстура:</b> Тверда, ламка, з гарними кристаликами кальцію.<br>
                         <b>З чим смакує:</b> Чудово смакує з медом, горіхами, сухофруктами та сухими винами.
                     </div>
-                    <div class="card-footer-flex">
-                        <span class="price">700 грн/кг</span>
-                        <div class="quantity-selector">
-                            <button class="qty-btn minus">-</button>
-                            <input type="number" class="qty-input" value="1" min="1">
-                            <button class="qty-btn plus">+</button>
+                    <div class="card-status-row">
+                        <span class="price-display">140 грн</span>
+                        <span class="stock-status">В наявності</span>
+                    </div>
+                    <div class="interactive-controls">
+                        <div class="weight-label">Вага</div>
+                        <div class="weight-selector">
+                            <button class="weight-btn active" data-weight="200">200</button>
+                            <button class="weight-btn" data-weight="500">500</button>
+                            <button class="weight-btn" data-weight="1000">1000</button>
                         </div>
-                        <button class="add-to-cart-btn">В кошик</button>
+                        <div class="card-footer-flex">
+                            <div class="quantity-selector">
+                                <button class="qty-btn minus">-</button>
+                                <input type="number" class="qty-input" value="1" min="1">
+                                <button class="qty-btn plus">+</button>
+                            </div>
+                            <button class="add-to-cart-btn">В кошик</button>
+                        </div>
                     </div>
                 </div>
 
-                <div class="product-card" data-id="goat_smoked" data-name="Копчений козячий сир" data-price="500">
+                <div class="product-card" data-id="goat_smoked" data-name="Копчений козячий сир" data-price-100g="50">
                     <div class="product-img-container" style="cursor: pointer;">
                         <img src="козячий копчений.JPG" alt="Копчений козячий сир" class="product-img">
                     </div>
@@ -324,14 +438,25 @@
                         <b>Текстура:</b> Пружна, напівтверда.<br>
                         <b>З чим смакує:</b> Чудова самостійна закуска, а також інгредієнт для пікантних салатів та теплих бутербродів.
                     </div>
-                    <div class="card-footer-flex">
-                        <span class="price">500 грн/кг</span>
-                        <div class="quantity-selector">
-                            <button class="qty-btn minus">-</button>
-                            <input type="number" class="qty-input" value="1" min="1">
-                            <button class="qty-btn plus">+</button>
+                    <div class="card-status-row">
+                        <span class="price-display">100 грн</span>
+                        <span class="stock-status">В наявності</span>
+                    </div>
+                    <div class="interactive-controls">
+                        <div class="weight-label">Вага</div>
+                        <div class="weight-selector">
+                            <button class="weight-btn active" data-weight="200">200</button>
+                            <button class="weight-btn" data-weight="500">500</button>
+                            <button class="weight-btn" data-weight="1000">1000</button>
                         </div>
-                        <button class="add-to-cart-btn">В кошик</button>
+                        <div class="card-footer-flex">
+                            <div class="quantity-selector">
+                                <button class="qty-btn minus">-</button>
+                                <input type="number" class="qty-input" value="1" min="1">
+                                <button class="qty-btn plus">+</button>
+                            </div>
+                            <button class="add-to-cart-btn">В кошик</button>
+                        </div>
                     </div>
                 </div>
             </div>
