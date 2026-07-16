@@ -1438,4 +1438,9 @@ body, h1, h2, h3, h4, .price, .add-to-cart-btn {
         font-size: 14px;
         line-height: 1.4;
     }
+}/* М'який сірий колір для товарів, яких тимчасово немає в наявності */
+.stock-status.out-of-stock {
+    color: #ff0000 !important;       /* Світло-сірий колір тексту */
+    background-color: #f8fafc;       /* Дуже ніжний сірий фон */
+    border-color: #cbd5e1 !important;/* Сіра рамка */
 }
